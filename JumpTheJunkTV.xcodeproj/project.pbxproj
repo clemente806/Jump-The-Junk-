@@ -66,7 +66,7 @@
 		7910FDB422C60F48008061C6 /* fitR6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7910FDA822C60F48008061C6 /* fitR6.png */; };
 		7910FDB622C62139008061C6 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FDB522C62139008061C6 /* ButtonNode.swift */; };
 		79463D3522CF3653000FE149 /* Intro.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D3422CF3653000FE149 /* Intro.sks */; };
-		79463D3722CF367C000FE149 /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D3622CF367C000FE149 /* GameplayScene.sks */; };
+		79463D4722CF69A6000FE149 /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D4622CF69A6000FE149 /* GameplayScene.sks */; };
 		7956693222CE0AC300CE53C1 /* fitRB8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7956692622CE0AC300CE53C1 /* fitRB8.png */; };
 		7956693322CE0AC300CE53C1 /* fitRB9.png in Resources */ = {isa = PBXBuildFile; fileRef = 7956692722CE0AC300CE53C1 /* fitRB9.png */; };
 		7956693422CE0AC300CE53C1 /* fitRB4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7956692822CE0AC300CE53C1 /* fitRB4.png */; };
@@ -145,7 +145,7 @@
 		7910FDA822C60F48008061C6 /* fitR6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitR6.png; sourceTree = "<group>"; };
 		7910FDB522C62139008061C6 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		79463D3422CF3653000FE149 /* Intro.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Intro.sks; sourceTree = "<group>"; };
-		79463D3622CF367C000FE149 /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
+		79463D4622CF69A6000FE149 /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
 		7956692622CE0AC300CE53C1 /* fitRB8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitRB8.png; sourceTree = "<group>"; };
 		7956692722CE0AC300CE53C1 /* fitRB9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitRB9.png; sourceTree = "<group>"; };
 		7956692822CE0AC300CE53C1 /* fitRB4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitRB4.png; sourceTree = "<group>"; };
@@ -317,8 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				7910FD4922C60EC3008061C6 /* GameOver.sks */,
+				79463D4622CF69A6000FE149 /* GameplayScene.sks */,
 				79463D3422CF3653000FE149 /* Intro.sks */,
-				79463D3622CF367C000FE149 /* GameplayScene.sks */,
 				7910FD4A22C60EC3008061C6 /* Scene1.sks */,
 			);
 			path = Scenes;
@@ -483,7 +483,7 @@
 			files = (
 				79463D3522CF3653000FE149 /* Intro.sks in Resources */,
 				7910FD6422C60EC4008061C6 /* fatR6.png in Resources */,
-				79463D3722CF367C000FE149 /* GameplayScene.sks in Resources */,
+				79463D4722CF69A6000FE149 /* GameplayScene.sks in Resources */,
 				7910FDA922C60F48008061C6 /* fitR8.png in Resources */,
 				7910FD9922C60F35008061C6 /* fitJ2.png in Resources */,
 				7910FDB022C60F48008061C6 /* fitR1.png in Resources */,

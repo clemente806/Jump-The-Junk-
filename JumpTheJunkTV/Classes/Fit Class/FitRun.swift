@@ -20,22 +20,6 @@ class FitRun: SKSpriteNode {
     private var fitRunAnimation = [SKTexture]();
     private var animateFitRunAction = SKAction();
     
-    func initializeButtonFitRun(){
-
-        fitRunAnimation.removeAll()
-        name = "FitRun";
-
-        for i in 1...12 {
-            let name = "fitR\(i)";
-            fitRunAnimation.append(SKTexture(imageNamed: name));
-        }
-
-        animateFitRunAction = SKAction.animate(with: fitRunAnimation, timePerFrame: 0.07, resize: true, restore: false);
-
-
-        self.run(SKAction.repeatForever(animateFitRunAction));
-
-    }
     
     func initializeFitRun(status : Int) {
         fitRunAnimation.removeAll()
@@ -61,7 +45,7 @@ class FitRun: SKSpriteNode {
         self.run(SKAction.repeatForever(animateFitRunAction));
         
         physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 40, height: self.size.height - 10));
-        physicsBody?.affectedByGravity = false;
+        physicsBody?.affectedByGravity = true;
         physicsBody?.allowsRotation = false;
         physicsBody?.restitution = 0;
         physicsBody?.categoryBitMask = ColliderType.PLAYER;
