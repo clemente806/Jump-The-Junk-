@@ -24,7 +24,7 @@ class FitRun: SKSpriteNode {
     func initializeFitRun(status : Int) {
         fitRunAnimation.removeAll()
         name = "FitRun";
-        
+//        print(ciao)
         if status <= 25{
 
             for i in 1...12 {
