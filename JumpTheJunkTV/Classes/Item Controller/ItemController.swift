@@ -73,16 +73,16 @@ class ItemController {
             item?.physicsBody = SKPhysicsBody(rectangleOf: item!.size);
         }
         
-        item!.physicsBody?.affectedByGravity = true;
-        item?.physicsBody?.categoryBitMask = ColliderType.JUNK_AND_COLLECTABLES;
+        item!.physicsBody?.affectedByGravity = true
+        item?.physicsBody?.categoryBitMask = ColliderType.JUNK_AND_COLLECTABLES
         
-        item?.zPosition = 4;
-        item?.anchorPoint = CGPoint(x: 0.5, y: 0.5);
+        item?.zPosition = 4
+        item?.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         
-        item?.position.x = camera.position.x + 1100;
-        item?.position.y = randomBetweenNumbers(firstNum: minY, secondNum: maxY);
+        item?.position.x = camera.position.x + 1100
+        item?.position.y = randomBetweenNumbers(firstNum: minY, secondNum: maxY)
         
-        return item!;
+        return item!
     }
     
     

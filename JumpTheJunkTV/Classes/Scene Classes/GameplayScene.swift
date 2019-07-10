@@ -34,6 +34,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var fridge1: Fridge?;
     private var fridge2: Fridge?;
     
+    private var barra1: barraRossa?;
+    
     private var mainCamera: SKCameraNode?;
     private var secondCamera: SKCameraNode?;
     
@@ -54,7 +56,9 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     override func update(_ currentTime: TimeInterval){
         
-        if fitRun?.physicsBody?.velocity.dy == 0  {
+        
+        
+        if fitRun?.physicsBody?.collisionBitMask == 1{
             ableToJump = true
         }
         else {
@@ -132,7 +136,19 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             firstBody = contact.bodyB;
             secondBody = contact.bodyA;
         }
-        
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "barra1" {
+            firstBody.node?.physicsBody?.collisionBitMask = (secondBody.node?.physicsBody!.collisionBitMask)!
+            
+//            firstBody.node?.physicsBody?.contactTestBitMask
+//            secondBody.node?.physicsBody?.collisionBitMask = 1
+//            secondBody.node?.physicsBody?.categoryBitMask = ColliderType
+//            secondBody.node?.physicsBody?.contactTestBitMask = ColliderType
+//            firstBody.node?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
+//            secondBody.node?.position.y = 0.5
+//            secondBody.node?.physicsBody?.collisionBitMask = 1
+//            secondBody.node?.physicsBody?.contactTestBitMask = 1
+            print("toccato")
+        }
         // Good food
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "apple" {
@@ -144,7 +160,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 }
             }
             bmiNum?.text = String(status);
-            secondBody.node?.removeFromParent();
+            secondBody.node?.removeFromParent()
         }
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "banana" {
@@ -156,7 +172,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 }
             }
             bmiNum?.text = String(status);
-            secondBody.node?.removeFromParent();
+            secondBody.node?.removeFromParent()
         }
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "broccoli" {
@@ -168,7 +184,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 }
             }
             bmiNum?.text = String(status);
-            secondBody.node?.removeFromParent();
+            secondBody.node?.removeFromParent()
         }
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "carrot" {
@@ -263,6 +279,10 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         ground2 = childNode(withName: "Ground2") as? GroundClass;
         ground3 = childNode(withName: "Ground3") as? GroundClass;
         
+        barra1 = childNode(withName: "barraRossa") as? barraRossa;
+        barra1?.initializeBarra()
+
+        
         ground1?.initializeGroundAndFloor();
         ground2?.initializeGroundAndFloor();
         ground3?.initializeGroundAndFloor();
@@ -306,7 +326,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         tree1?.moveTree(camera: secondCamera!);
         tree2?.moveTree(camera: secondCamera!);
         tree3?.moveTree(camera: secondCamera!);
-        
+
     }
     
     @objc private func spawnItems() {
@@ -318,7 +338,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if child.name == "apple" || child.name == "banana" || child.name == "broccoli"
                 || child.name == "carrot" || child.name == "pear" || child.name == "lollipop"
                 || child.name == "hotdog" || child.name == "sandwich"
-                || child.name == "donut" || child.name == "fries"{
+                || child.name == "donut" || child.name == "fries" || child.name == "barraRossa" {
                 if child.position.x < self.mainCamera!.position.x - self.scene!.frame.width / 2 {
                     child.removeFromParent();
                 }
@@ -356,8 +376,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try AVAudioSession.sharedInstance().setActive(true)
-            
-            
             
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)

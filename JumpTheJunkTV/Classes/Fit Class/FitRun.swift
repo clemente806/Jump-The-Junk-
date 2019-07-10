@@ -9,9 +9,11 @@
 import SpriteKit
 
 struct ColliderType {
-    static let PLAYER: UInt32 = 0;
-    static let GROUND: UInt32 = 1;
-    static let JUNK_AND_COLLECTABLES: UInt32 = 2;
+    static let PLAYER: UInt32 = 0
+    static let GROUND: UInt32 = 1
+    static let JUNK_AND_COLLECTABLES: UInt32 = 2
+    static let BARRAROSSA: UInt32 = 3
+
 }
 
 class FitRun: SKSpriteNode {
@@ -24,7 +26,7 @@ class FitRun: SKSpriteNode {
     func initializeFitRun(status : Int) {
         fitRunAnimation.removeAll()
         name = "FitRun";
-//        print(ciao)
+        
         if status <= 25{
 
             for i in 1...12 {
@@ -42,17 +44,22 @@ class FitRun: SKSpriteNode {
         animateFitRunAction = SKAction.animate(with: fitRunAnimation, timePerFrame: 0.07, resize: true, restore: false);
         
         
-        self.run(SKAction.repeatForever(animateFitRunAction));
+        self.run(SKAction.repeatForever(animateFitRunAction))
         
-        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 40, height: self.size.height - 10));
-        physicsBody?.affectedByGravity = true;
-        physicsBody?.allowsRotation = false;
-        physicsBody?.restitution = 0;
-        physicsBody?.categoryBitMask = ColliderType.PLAYER;
-        physicsBody?.collisionBitMask = ColliderType.GROUND;
-        physicsBody?.contactTestBitMask = ColliderType.JUNK_AND_COLLECTABLES;
+        
+        physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width - 40, height: self.size.height - 10))
+        physicsBody?.affectedByGravity = true
+        physicsBody?.allowsRotation = false
+        physicsBody?.restitution = 0
+        physicsBody?.categoryBitMask = ColliderType.PLAYER
+        physicsBody?.collisionBitMask = ColliderType.GROUND
+        physicsBody?.contactTestBitMask = ColliderType.JUNK_AND_COLLECTABLES
+        physicsBody?.categoryBitMask = ColliderType.BARRAROSSA
+        
+
         
     }
+    
     
     func move(status: Int, camera: CGFloat) {
         if status > 25 {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		790085A522D5D8BC00F66AC1 /* barraRossa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790085A422D5D8BC00F66AC1 /* barraRossa.swift */; };
 		7910FD0A22C60E3F008061C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD0922C60E3F008061C6 /* AppDelegate.swift */; };
 		7910FD1022C60E3F008061C6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD0F22C60E3F008061C6 /* GameScene.swift */; };
 		7910FD1222C60E3F008061C6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD1122C60E3F008061C6 /* GameViewController.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		790085A422D5D8BC00F66AC1 /* barraRossa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = barraRossa.swift; sourceTree = "<group>"; };
 		7910FD0622C60E3F008061C6 /* JumpTheJunkTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JumpTheJunkTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7910FD0922C60E3F008061C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7910FD0F22C60E3F008061C6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -173,6 +175,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		790085A322D5D8A100F66AC1 /* barraRossa */ = {
+			isa = PBXGroup;
+			children = (
+				790085A422D5D8BC00F66AC1 /* barraRossa.swift */,
+			);
+			path = barraRossa;
+			sourceTree = "<group>";
+		};
 		7910FCFD22C60E3F008061C6 = {
 			isa = PBXGroup;
 			children = (
@@ -225,13 +235,13 @@
 		7910FD2922C60E97008061C6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				790085A322D5D8A100F66AC1 /* barraRossa */,
 				79C1EA7422CA1D8E0041EDCC /* ActionNode */,
 				79C1EA7222C9FBCA0041EDCC /* ButtonNode */,
 				7910FD2A22C60E97008061C6 /* Fit Class */,
 				7910FD2C22C60E97008061C6 /* Intro */,
 				7910FD2E22C60E97008061C6 /* Game Over */,
 				7910FD3022C60E97008061C6 /* Fridge Class */,
-				7910FD3222C60E97008061C6 /* Fat Class */,
 				7910FD3322C60E97008061C6 /* Main Menu */,
 				7910FD3522C60E97008061C6 /* Scene Classes */,
 				7910FD3722C60E97008061C6 /* BG And Ground Classes */,
@@ -270,13 +280,6 @@
 				7910FD3122C60E97008061C6 /* Fridge.swift */,
 			);
 			path = "Fridge Class";
-			sourceTree = "<group>";
-		};
-		7910FD3222C60E97008061C6 /* Fat Class */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Fat Class";
 			sourceTree = "<group>";
 		};
 		7910FD3322C60E97008061C6 /* Main Menu */ = {
@@ -561,6 +564,7 @@
 				7910FD4622C60E97008061C6 /* ItemController.swift in Sources */,
 				7910FD4422C60E97008061C6 /* TreeClass.swift in Sources */,
 				7910FD0A22C60E3F008061C6 /* AppDelegate.swift in Sources */,
+				790085A522D5D8BC00F66AC1 /* barraRossa.swift in Sources */,
 				79C1EA7622CA1DC60041EDCC /* ActionNode.swift in Sources */,
 				7910FD4122C60E97008061C6 /* Scene1.swift in Sources */,
 				7910FD3D22C60E97008061C6 /* FitRun.swift in Sources */,
