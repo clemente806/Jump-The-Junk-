@@ -14,6 +14,12 @@
          contextName = "GameplayScene.initializeGame():GameplayScene.swift">
          <PersistentStrings>
             <PersistentString
+               value = "children.map({print($0.name)})">
+            </PersistentString>
+            <PersistentString
+               value = "mainCamera?.childNode(withName: &quot;fridge1&quot;)">
+            </PersistentString>
+            <PersistentString
                value = "name">
             </PersistentString>
             <PersistentString

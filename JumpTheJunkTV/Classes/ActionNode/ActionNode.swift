@@ -25,21 +25,17 @@ class ActionNode: SKSpriteNode {
 
     
     override var canBecomeFocused: Bool {
-        print(1)
         return true
     }
     
     func setFocusedImage(named name: String) {
         
-//        unfocusedImage = SKAction(named: name)
         unfocusedImage = self.texture
-//        fitRun.initializeButtonFitRun()
 
-         print(2)
-//        unfocusedImage = self.actionImage
         isUserInteractionEnabled = true
     }
     
+//    livelli sbloccati
     func initializeButtonFitRun(){
         
         fitRunAnimation.removeAll()
@@ -56,7 +52,7 @@ class ActionNode: SKSpriteNode {
         self.run(SKAction.repeatForever(animateFitRunAction));
         
     }
-    
+//  Livelli bloccati
     func initializeButtonFitRunBlock(){
         
         fitRunAnimation.removeAll()
@@ -73,6 +69,22 @@ class ActionNode: SKSpriteNode {
         
     }
     
+//    Restart livello
+    func initializeButtonRestart(){
+        
+        fitRunAnimation.removeAll()
+        name = "FitRun";
+        
+        for i in 1...12 {
+            let name = "fitRB\(i)";
+            fitRunAnimation.append(SKTexture(imageNamed: name));
+        }
+        
+        animateFitRunAction = SKAction.animate(with: fitRunAnimation, timePerFrame: 0.07, resize: false, restore: true);
+        
+        self.run(SKAction.repeatForever(animateFitRunAction));
+        
+    }
     
     func didGainFocus() {
         if levelsCompleted == Int(self.label){

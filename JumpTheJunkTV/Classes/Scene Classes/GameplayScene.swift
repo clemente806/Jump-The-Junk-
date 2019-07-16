@@ -17,6 +17,9 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     var player: AVAudioPlayer?
     
+    var getTimer: Timer?
+
+    
     private var bg1: BGClass?;
     private var bg2: BGClass?;
     private var bg3: BGClass?;
@@ -30,11 +33,15 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var tree3: TreeClass?;
     
     private var fitRun: FitRun?;
+    private var FliyngHotDog1: fliynghotdog?;
     
     private var fridge1: Fridge?;
     private var fridge2: Fridge?;
     
     private var barra1: barraRossa?;
+    private var barra2: barraRossa?;
+
+    private var cloud1: cloud?
     
     private var mainCamera: SKCameraNode?;
     private var secondCamera: SKCameraNode?;
@@ -47,7 +54,13 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     public var status = 20;
     
     var ableToJump = true
-    var gameOver = false
+    var gameOver = true
+    
+    var lancio : SKSpriteNode?
+    var rotLancio = true
+    
+    var firstBody = SKPhysicsBody();
+    var secondBody = SKPhysicsBody();
     
     override func didMove (to view: SKView) {
         initializeGame();
@@ -56,9 +69,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     override func update(_ currentTime: TimeInterval){
         
-        
-        
-        if fitRun?.physicsBody?.collisionBitMask == 1{
+        if fitRun?.physicsBody?.velocity.dy == 0{
             ableToJump = true
         }
         else {
@@ -71,17 +82,34 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         
         if fitRun!.position.x < self.mainCamera!.position.x - self.scene!.frame.width / 2{
             fitRun?.removeFromParent()
-            gameOver = true
+            gameOver = false
         }
-        if gameOver == true {
+        if !gameOver {
             gameover();
         }
         
         manageCamera();
         manageSecondCamera();
         manageBGsAndGrounds();
+        
+        cloud1?.moveCloud()
+        
+        
         fitRun?.move(status: status, camera: mainCamera!.position.x);
         
+        if(!rotLancio){
+            lancio?.zRotation = 0
+        }
+        else{
+            lancio?.zRotation += .pi / 4.0;
+        }
+//                if (!rotLancio || firstBody.node?.name == "ciboFrigo1" || firstBody.node?.name == "ciboFrigo2" || firstBody.node?.name == "ciboFrigo3" || firstBody.node?.name == "ciboFrigo4" && secondBody.node?.name == "barra1"){
+//                    lancio?.zRotation = 0
+//                }
+//                else{
+//                    lancio?.zRotation += .pi / 4.0;
+//                }
+               
     }
     
     func  gameover(){
@@ -104,14 +132,14 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             
             name = "FitJump";
             if status <= 25{
-                fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 450))
+                fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 600))
                 for i in 1...6 {
                     let name = "fitJ\(i)";
                     fitJumpAnimation.append(SKTexture(imageNamed: name));
                 }
             }
             else {
-                fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 400))
+                fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 550))
                 for i in 1...6 {
                     let name1 = "fatJ\(i)";
                     fitJumpAnimation.append(SKTexture(imageNamed: name1));
@@ -127,6 +155,10 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
+//        let thirdBody = lancio?.physicsBody?.allContactedBodies()
+//
+//        let cont = thirdBody!.contains(barra1!.physicsBody!)
+        
         
         if contact.bodyA.node?.name == "FitRun"{
             firstBody = contact.bodyA;
@@ -136,21 +168,14 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             firstBody = contact.bodyB;
             secondBody = contact.bodyA;
         }
-        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "barra1" {
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "barra1" || secondBody.node?.name == "barra2"  {
             firstBody.node?.physicsBody?.collisionBitMask = (secondBody.node?.physicsBody!.collisionBitMask)!
-            
-//            firstBody.node?.physicsBody?.contactTestBitMask
-//            secondBody.node?.physicsBody?.collisionBitMask = 1
-//            secondBody.node?.physicsBody?.categoryBitMask = ColliderType
-//            secondBody.node?.physicsBody?.contactTestBitMask = ColliderType
-//            firstBody.node?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
-//            secondBody.node?.position.y = 0.5
-//            secondBody.node?.physicsBody?.collisionBitMask = 1
-//            secondBody.node?.physicsBody?.contactTestBitMask = 1
-            print("toccato")
+        }
+        if (rotLancio){
+            rotLancio = false
         }
         // Good food
-        
+    
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "apple" {
             playSoundGood()
             if status > 25 {
@@ -258,6 +283,54 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 fitRun?.initializeFitRun(status: status)
             }
         }
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "fliynghotdog" {
+            playSoundJunk()
+            status += 10;
+            bmiNum?.text = String(status);
+            secondBody.node?.removeFromParent();
+            if status > 25 {
+                fitRun?.initializeFitRun(status: status)
+            }
+        }
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "ciboFrigo1" {
+            playSoundJunk()
+            status += 10;
+            bmiNum?.text = String(status);
+            secondBody.node?.removeFromParent();
+            if status > 25 {
+                fitRun?.initializeFitRun(status: status)
+            }
+        }
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "ciboFrigo2" {
+            playSoundJunk()
+            status += 10;
+            bmiNum?.text = String(status);
+            secondBody.node?.removeFromParent();
+            if status > 25 {
+                fitRun?.initializeFitRun(status: status)
+            }
+        }
+
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "ciboFrigo3" {
+            playSoundJunk()
+            status += 10;
+            bmiNum?.text = String(status);
+            secondBody.node?.removeFromParent();
+            if status > 25 {
+                fitRun?.initializeFitRun(status: status)
+            }
+        }
+
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "ciboFrigo4" {
+            playSoundJunk()
+            status += 10;
+            bmiNum?.text = String(status);
+            secondBody.node?.removeFromParent();
+            if status > 25 {
+                fitRun?.initializeFitRun(status: status)
+            }
+        }
+
     }
     
     private func initializeGame(){
@@ -281,17 +354,26 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         
         barra1 = childNode(withName: "barraRossa") as? barraRossa;
         barra1?.initializeBarra()
+        
+        barra2 = childNode(withName: "barraRossa2") as? barraRossa;
+        barra2?.initializeBarra()
+        
+        cloud1 = childNode(withName: "cloud") as? cloud;
+        FliyngHotDog1 = childNode(withName: "fliynghotdog") as? fliynghotdog;
+        FliyngHotDog1?.initializeHotDog()
 
+        
+        fridge1 = mainCamera?.childNode(withName: "fridge1") as? Fridge;
+        fridge1?.initializeFridge()
+        fridge2 = mainCamera?.childNode(withName: "fridge2") as? Fridge;
+        fridge2?.initializeFridge()
         
         ground1?.initializeGroundAndFloor();
         ground2?.initializeGroundAndFloor();
         ground3?.initializeGroundAndFloor();
         
-        
         fitRun = childNode(withName: "FitRun") as? FitRun;
         fitRun?.initializeFitRun(status: status);
-    
-        
         
         bmiNum = mainCamera!.childNode(withName: "BmiNum")
             as? SKLabelNode;
@@ -301,9 +383,12 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         ScoreNum?.text = "0";
         
         // vel creazione ogg
+          Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomBetweenNumbers(firstNum: 5, secondNum: 8)), target: self, selector: #selector(GameplayScene.FridgeLancioOggetti), userInfo: nil, repeats: true);
+        
         Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomBetweenNumbers(firstNum: 1.5, secondNum: 3)), target: self, selector: #selector(GameplayScene.spawnItems), userInfo: nil, repeats: true);
         
         Timer.scheduledTimer(timeInterval: TimeInterval(7), target: self, selector: #selector(GameplayScene.removeItems), userInfo: nil, repeats: true);
+        
     }
     
     private func manageCamera(){
@@ -326,11 +411,36 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         tree1?.moveTree(camera: secondCamera!);
         tree2?.moveTree(camera: secondCamera!);
         tree3?.moveTree(camera: secondCamera!);
-
     }
     
     @objc private func spawnItems() {
         self.scene?.addChild(itemController.spawnItems(camera: mainCamera!));
+    }
+    
+    @objc private func FridgeLancioOggetti() {
+        self.scene?.addChild(itemController.FridgeLancioOggetti(camera: mainCamera!));
+        
+        lancio = itemController.FridgeLancioOggetti(camera: mainCamera!)
+        self.scene?.addChild(lancio!)
+        lancio?.physicsBody?.categoryBitMask = ColliderType.JUNK_AND_COLLECTABLES
+
+        lancio?.position.x = secondCamera!.position.x
+        lancio?.position.y = secondCamera!.position.y
+        lancio?.zPosition = 4
+        lancio?.physicsBody?.affectedByGravity = true
+        lancio?.physicsBody?.applyImpulse(CGVector(dx: 120,dy: 30))
+        
+
+        
+//        if (!rotLancio || firstBody.node?.name == "ciboFrigo1" || firstBody.node?.name == "ciboFrigo2" || firstBody.node?.name == "ciboFrigo3" || firstBody.node?.name == "ciboFrigo4" && secondBody.node?.name == "barra1"){
+//            lancio!.zRotation = 0
+//        }
+//        else{
+//            lancio!.zRotation += .pi / 4.0;
+//        }
+//        if(lancio!.position.y <= -40){
+//            rotLancio = false
+//        }
     }
     
     @objc private func removeItems(){
@@ -338,7 +448,11 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if child.name == "apple" || child.name == "banana" || child.name == "broccoli"
                 || child.name == "carrot" || child.name == "pear" || child.name == "lollipop"
                 || child.name == "hotdog" || child.name == "sandwich"
-                || child.name == "donut" || child.name == "fries" || child.name == "barraRossa" {
+                || child.name == "donut" || child.name == "fries" || child.name == "barraRossa"
+                || child.name == "cloud" || child.name == "fliynghotdog"
+                || child.name == "ciboFrigo1" || child.name == "ciboFrigo2"
+                || child.name == "ciboFrigo3" || child.name == "ciboFrigo4"
+{
                 if child.position.x < self.mainCamera!.position.x - self.scene!.frame.width / 2 {
                     child.removeFromParent();
                 }
