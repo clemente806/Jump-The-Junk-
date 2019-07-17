@@ -103,11 +103,11 @@ class ActionNode: SKSpriteNode {
 
 
     func didGainFocusRestartButton(){
-        self.texture = SKTexture(imageNamed: "banana")
+        self.texture = SKTexture(imageNamed: "restartFocus")
     }
 
     func didGainFocusBacktoMenuButton(){
-        self.texture = SKTexture(imageNamed: "apple")
+        self.texture = SKTexture(imageNamed: "mainmenuFocus")
     }
 
 }

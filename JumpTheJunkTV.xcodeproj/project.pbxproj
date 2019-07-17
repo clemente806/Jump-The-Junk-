@@ -16,7 +16,6 @@
 		7910FD2522C60E7C008061C6 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7910FD2022C60E7C008061C6 /* jump.wav */; };
 		7910FD2622C60E7C008061C6 /* good.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7910FD2122C60E7C008061C6 /* good.wav */; };
 		7910FD2722C60E7C008061C6 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7910FD2222C60E7C008061C6 /* music.mp3 */; };
-		7910FD2822C60E7C008061C6 /* gameover.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7910FD2322C60E7C008061C6 /* gameover.wav */; };
 		7910FD3D22C60E97008061C6 /* FitRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD2B22C60E97008061C6 /* FitRun.swift */; };
 		7910FD3F22C60E97008061C6 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD2F22C60E97008061C6 /* GameOver.swift */; };
 		7910FD4022C60E97008061C6 /* Fridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD3122C60E97008061C6 /* Fridge.swift */; };
@@ -54,6 +53,7 @@
 		792C1FFC22DF097E00F1354C /* fatJ2.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF622DF097E00F1354C /* fatJ2.png */; };
 		792C1FFD22DF097E00F1354C /* fatJ4.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF722DF097E00F1354C /* fatJ4.png */; };
 		792C1FFE22DF097E00F1354C /* fatJ5.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF822DF097E00F1354C /* fatJ5.png */; };
+		792C200022DF33AE00F1354C /* GameOverMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */; };
 		79463D3522CF3653000FE149 /* Intro.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D3422CF3653000FE149 /* Intro.sks */; };
 		79463D4722CF69A6000FE149 /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D4622CF69A6000FE149 /* GameplayScene.sks */; };
 		7956693222CE0AC300CE53C1 /* fitRB8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7956692622CE0AC300CE53C1 /* fitRB8.png */; };
@@ -102,7 +102,6 @@
 		7910FD2022C60E7C008061C6 /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		7910FD2122C60E7C008061C6 /* good.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = good.wav; sourceTree = "<group>"; };
 		7910FD2222C60E7C008061C6 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
-		7910FD2322C60E7C008061C6 /* gameover.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gameover.wav; sourceTree = "<group>"; };
 		7910FD2B22C60E97008061C6 /* FitRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitRun.swift; sourceTree = "<group>"; };
 		7910FD2F22C60E97008061C6 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 		7910FD3122C60E97008061C6 /* Fridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fridge.swift; sourceTree = "<group>"; };
@@ -140,6 +139,7 @@
 		792C1FF622DF097E00F1354C /* fatJ2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ2.png; sourceTree = "<group>"; };
 		792C1FF722DF097E00F1354C /* fatJ4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ4.png; sourceTree = "<group>"; };
 		792C1FF822DF097E00F1354C /* fatJ5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ5.png; sourceTree = "<group>"; };
+		792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOverMusic.mp3; sourceTree = "<group>"; };
 		79463D3422CF3653000FE149 /* Intro.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Intro.sks; sourceTree = "<group>"; };
 		79463D4622CF69A6000FE149 /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
 		7956692622CE0AC300CE53C1 /* fitRB8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitRB8.png; sourceTree = "<group>"; };
@@ -236,11 +236,11 @@
 		7910FD1E22C60E7C008061C6 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */,
 				7910FD1F22C60E7C008061C6 /* junk.wav */,
 				7910FD2022C60E7C008061C6 /* jump.wav */,
 				7910FD2122C60E7C008061C6 /* good.wav */,
 				7910FD2222C60E7C008061C6 /* music.mp3 */,
-				7910FD2322C60E7C008061C6 /* gameover.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -556,7 +556,6 @@
 				7956693822CE0AC300CE53C1 /* fitRB10.png in Resources */,
 				7956693522CE0AC300CE53C1 /* fitRB12.png in Resources */,
 				798164CE22DDE5EE00C9110A /* fatR5.png in Resources */,
-				7910FD2822C60E7C008061C6 /* gameover.wav in Resources */,
 				792C1FFC22DF097E00F1354C /* fatJ2.png in Resources */,
 				7910FDAA22C60F48008061C6 /* fitR9.png in Resources */,
 				7910FD9B22C60F35008061C6 /* fitJ1.png in Resources */,
@@ -566,6 +565,7 @@
 				798164CD22DDE5EE00C9110A /* fatR3.png in Resources */,
 				7910FDAE22C60F48008061C6 /* fitR2.png in Resources */,
 				7910FDAD22C60F48008061C6 /* fitR11.png in Resources */,
+				792C200022DF33AE00F1354C /* GameOverMusic.mp3 in Resources */,
 				7910FD5A22C60EC4008061C6 /* GameOver.sks in Resources */,
 				7956693422CE0AC300CE53C1 /* fitRB4.png in Resources */,
 				798164B722DC67D600C9110A /* hotdog4.png in Resources */,

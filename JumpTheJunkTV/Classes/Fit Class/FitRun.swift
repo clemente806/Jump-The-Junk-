@@ -23,7 +23,7 @@ class FitRun: SKSpriteNode {
     private var animateFitRunAction = SKAction();
     
     
-    func initializeFitRun(status : Int) {
+    func initializeFitRun(status : Double) {
         fitRunAnimation.removeAll()
         name = "FitRun";
         
@@ -61,7 +61,7 @@ class FitRun: SKSpriteNode {
     }
     
     
-    func move(status: Int, camera: CGFloat) {
+    func move(status: Double, camera: CGFloat) {
         if status > 25 {
             self.position.x += 12;
         }

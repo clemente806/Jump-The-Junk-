@@ -13,7 +13,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
-    var player: AVAudioPlayer?
+    static var player: AVAudioPlayer?
     
     var gameScene : SKScene? {
         return (self.view as! SKView).scene
@@ -21,7 +21,6 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        playSound()
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = Intro(fileNamed: "Intro") {
@@ -61,7 +60,8 @@ class GameViewController: UIViewController {
     }
     
     
-    func playSound() {
+    static func playSound() {
+        GameViewController.player?.stop()
         guard let url = Bundle.main.url(forResource: "music", withExtension: "mp3") else { return }
         
         do {
@@ -71,21 +71,20 @@ class GameViewController: UIViewController {
             
             
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            GameViewController.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             
             /* iOS 10 and earlier require the following line:
              player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
             
-            guard let player = player else { return }
-            
-            player.play()
+            GameViewController.player!.play()
             
         } catch let error {
             print(error.localizedDescription)
         }
     }
     
-    func pauseSound() {
+   static func playSoundLevel1() {
+        GameViewController.player?.stop()
         guard let url = Bundle.main.url(forResource: "music", withExtension: "mp3") else { return }
         
         do {
@@ -95,18 +94,47 @@ class GameViewController: UIViewController {
             
             
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            GameViewController.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             
             /* iOS 10 and earlier require the following line:
              player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
             
-            guard let player = player else { return }
-            
-            player.pause()
+            GameViewController.player!.play()
             
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+
+    static func playSoundGameOver() {
+        GameViewController.player?.stop()
+        guard let url = Bundle.main.url(forResource: "GameOverMusic", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            GameViewController.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            GameViewController.player!.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+
+    static func pauseSound() {
+        GameViewController.player!.pause()
+    }
+    
+    static func resumeSound(){
+        GameViewController.player!.play()
     }
 
 }

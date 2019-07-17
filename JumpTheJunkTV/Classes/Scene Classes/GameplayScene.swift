@@ -52,7 +52,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var bmiNum: SKLabelNode?;
     private var ScoreNum: SKLabelNode?;
     private var score = 0
-    public var status = 20;
+    public var status = 18.0;
     
     var ableToJump = true
     var gameOver = true
@@ -76,7 +76,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         else {
             ableToJump = false
         }
-        if status > 19 && status <= 25 {
+        if status > 18.0 && status <= 25.0 {
             score += 1
         }
         ScoreNum?.text = String(score);
@@ -134,7 +134,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         if ableToJump == true {
             
             name = "FitJump";
-            if status <= 25{
+            if status <= 25.0{
                 fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 600))
                 for i in 1...6 {
                     let name = "fitJ\(i)";
@@ -181,60 +181,50 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "apple" {
             playSoundGood()
-            if status > 25 {
-                status -= 4
-                if status <= 25 {
-                    fitRun?.initializeFitRun(status: status)
-                }
+            if status >= 18.6 {
+                status -= 0.6
             }
+            fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent()
         }
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "banana" {
             playSoundGood()
-            if status > 25 {
-                status -= 3
-                if status <= 25 {
-                    fitRun?.initializeFitRun(status: status)
-                }
+            if status >= 18.4 {
+                status -= 0.4
             }
+            fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent()
         }
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "broccoli" {
             playSoundGood()
-            if status > 25 {
-                status -= 5
-                if status <= 25 {
-                    fitRun?.initializeFitRun(status: status)
-                }
+            if status > 19 {
+                status -= 1.0
             }
+            fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent()
         }
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "carrot" {
             playSoundGood()
-            if status > 25 {
-                status -= 1
-                if status <= 25 {
-                    fitRun?.initializeFitRun(status: status)
-                }
+            if status >= 18.8 {
+                status -= 0.8
             }
+            fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
         }
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "pear" {
             playSoundGood()
-            if status > 25 {
-                status -= 2
-                if status <= 25 {
-                    fitRun?.initializeFitRun(status: status)
-                }
+            if status >= 18.2 {
+                status -= 0.2
             }
+            fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
         }
@@ -243,97 +233,107 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         // Junk food
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "hotdog" {
             playSoundJunk()
-            status += 3
+            if status <= 34.5{
+                status += 0.5
+            }
+            fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
-            }
+            
         }
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "lollipop" {
             playSoundJunk()
-            status += 1
+            if status <= 34.9{
+                status += 0.1
+            }
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
-            }
+            fitRun?.initializeFitRun(status: status)
+            
         }
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "donut" {
             playSoundJunk()
-            status += 3
+            if status <= 34.3{
+                status += 0.7
+            }
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
-            }
+            fitRun?.initializeFitRun(status: status)
+            
         }
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "sandwich" {
             playSoundJunk()
-            status += 4
+            if status <= 34.7
+            {
+                status += 0.3
+            }
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
-            }
+            fitRun?.initializeFitRun(status: status)
         }
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "fries" {
             playSoundJunk()
-            status += 5;
+            if status <= 34
+            {
+                status += 1.0;
+            }
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
-            }
+            fitRun?.initializeFitRun(status: status)
         }
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "fliynghotdog" {
             playSoundJunk()
-            status += 10;
+            if status <= 32
+            {
+                status += 3.0;
+            }
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
-            }
+            fitRun?.initializeFitRun(status: status)
         }
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "ciboFrigo1" {
             playSoundJunk()
-            status += 10;
-            bmiNum?.text = String(status);
-            secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
+            if status <= 32.6
+            {
+                status += 2.4;
+                bmiNum?.text = String(status);
             }
+            secondBody.node?.removeFromParent();
+            fitRun?.initializeFitRun(status: status)
         }
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "ciboFrigo2" {
             playSoundJunk()
-            status += 10;
-            bmiNum?.text = String(status);
-            secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
+            if status <= 33
+            {
+                status += 2.0;
+                bmiNum?.text = String(status);
             }
+            secondBody.node?.removeFromParent();
+            fitRun?.initializeFitRun(status: status)
         }
 
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "ciboFrigo3" {
             playSoundJunk()
-            status += 10;
-            bmiNum?.text = String(status);
-            secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
+            if status <= 33.7
+            {
+                status += 1.3;
+                bmiNum?.text = String(status);
             }
+            secondBody.node?.removeFromParent();
+            fitRun?.initializeFitRun(status: status)
         }
 
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "ciboFrigo4" {
             playSoundJunk()
-            status += 10;
-            bmiNum?.text = String(status);
-            secondBody.node?.removeFromParent();
-            if status > 25 {
-                fitRun?.initializeFitRun(status: status)
+            if status <= 33.3
+            {
+                status += 1.7;
+                bmiNum?.text = String(status);
             }
+            
+            secondBody.node?.removeFromParent();
+            fitRun?.initializeFitRun(status: status)
         }
-
     }
     
     private func initializeGame(){
@@ -382,7 +382,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         
         bmiNum = mainCamera!.childNode(withName: "BmiNum")
             as? SKLabelNode;
-        bmiNum?.text = "20";
+        bmiNum?.text = "18.0";
         ScoreNum = mainCamera!.childNode(withName: "ScoreNum")
             as? SKLabelNode;
         ScoreNum?.text = "0";

@@ -12,18 +12,18 @@ class GameOver: SKScene {
     
     func initializeRestartButton(){
         restart.setFocusedImage(named: "restart")
-        restart.position = CGPoint(x: 480, y: 160)
+        restart.position = CGPoint(x: 50, y: -140)
         restart.size = CGSize(width: 165, height: 165)
         addChild(restart)
     }
     func initializeBacktoMenuButton(){
         mm.setFocusedImage(named: "mainmenu")
-        mm.position = CGPoint(x: 480, y: -160)
+        mm.position = CGPoint(x: 430, y: -140)
         mm.size = CGSize(width: 165, height: 165)
         addChild(mm)
     }
     override func didMove(to view: SKView) {
-        
+        GameViewController.playSoundGameOver()
         background.zPosition = -1
         background.position = CGPoint(x: 0, y:0)
         background.blendMode = .replace

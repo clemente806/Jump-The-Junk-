@@ -19,7 +19,7 @@ class Scene1: SKScene{
     private var fitRun1 = FitRun()
     
     override func didMove(to view: SKView) {
-        
+        GameViewController.playSound()
         let background = SKSpriteNode(imageNamed: "Scene1")
         background.zPosition = -1
         background.position = CGPoint(x: 640, y:360)
@@ -72,7 +72,7 @@ class Scene1: SKScene{
         
         if press.type == .select {
             if selected === livel1 {
-                
+                GameViewController.playSoundLevel1()
                 let game = GameplayScene(fileNamed: "GameplayScene")
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene((game?.scene!)!, transition: transition)
