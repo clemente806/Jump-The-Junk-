@@ -1,23 +1,27 @@
-//
-//  GameOver.swift
-//  Jump The Junk
-//
-//  Created by Vincenzo Cusaniello on 09/01/18.
 //  Copyright © 2018 Vincenzo Cusaniello. All rights reserved.
 //
 
 import SpriteKit
 import GameplayKit
 
-let restart = ActionNode(imageNamed: "restart")
-let mm = ActionNode(imageNamed: "mainmenu")
-
-
 class GameOver: SKScene {
     
+    let restart = ActionNode(imageNamed: "restart")
+    let mm = ActionNode(imageNamed: "mainmenu")
     let background = SKSpriteNode(imageNamed: "gameover")
     
-    
+    func initializeRestartButton(){
+        restart.setFocusedImage(named: "restart")
+        restart.position = CGPoint(x: 480, y: 160)
+        restart.size = CGSize(width: 165, height: 165)
+        addChild(restart)
+    }
+    func initializeBacktoMenuButton(){
+        mm.setFocusedImage(named: "mainmenu")
+        mm.position = CGPoint(x: 480, y: -160)
+        mm.size = CGSize(width: 165, height: 165)
+        addChild(mm)
+    }
     override func didMove(to view: SKView) {
         
         background.zPosition = -1
@@ -25,15 +29,8 @@ class GameOver: SKScene {
         background.blendMode = .replace
         addChild(background)
         
-        restart.setFocusedImage(named: "restart")
-        restart.position = CGPoint(x: 480, y: 160)
-        restart.size = CGSize(width: 165, height: 165)
-        addChild(restart)
-        
-        mm.setFocusedImage(named: "mainmenu")
-        mm.position = CGPoint(x: 480, y: -160)
-        mm.size = CGSize(width: 165, height: 165)
-        addChild(mm)
+        initializeRestartButton()
+        initializeBacktoMenuButton()
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -45,39 +42,58 @@ class GameOver: SKScene {
         }
         
         if let next = context.nextFocusedItem as? ActionNode {
-            
-            next.didGainFocus()
+            if next == restart{
+                next.didGainFocusRestartButton()
+            }
+            else if next == mm{
+                next.didGainFocusBacktoMenuButton()
+            }
         }
         
     }
-    func didLoseFocus(){
+    
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        guard let selected = UIScreen.main.focusedItem else { return }
+        guard let press = event?.allPresses.first else { return }
         
+        if press.type == .select {
+            if selected === restart{
+                
+                let game = GameplayScene(fileNamed: "GameplayScene")
+                let transition = SKTransition.doorsOpenVertical(withDuration: 1)
+                view?.presentScene(game!.scene!, transition: transition)
+            }
+            else if selected === mm {
+                
+                let game = Scene1(size: size)
+                let transition = SKTransition.doorsOpenVertical(withDuration: 1)
+                view?.presentScene(game.scene!, transition: transition)
+            }
+        }
     }
-    func didGainFocus(){
-        
-    }
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//        for touch in touches{
-//            let location = touch.location(in: self);
-//            if atPoint(location).name == "Restart" {
-//                if let scene = GameplayScene(fileNamed: "GameplayScene") {
-//                    // Set the scale mode to scale to fit the window
-//                    scene.scaleMode = .aspectFill
-//
-//                    // Present the scene
-//                    view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)));
-//                }
-//            }
-//            if atPoint(location).name == "MainMenu" {
-//                if let scene = Scene1(fileNamed: "Scene1") {
-//                    // Set the scale mode to scale to fit the window
-//                    scene.scaleMode = .aspectFill
-//
-//                    // Present the scene
-//                    view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)));
-//                }
-//            }
-//        }
-//    }
+    
+    //    func pressesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //
+    //        for touch in touches{
+    //            let location = touch.location(in: self);
+    //            if atPoint(location).position == CGPoint(x:480, y:160) {
+    //                if let scene = GameplayScene(fileNamed: "GameplayScene") {
+    //                    // Set the scale mode to scale to fit the window
+    //                    scene.scaleMode = .aspectFill
+    //
+    //                    // Present the scene
+    //                    view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)));
+    //                }
+    //            }
+    //            if atPoint(location).position == CGPoint(x:480, y:-160) {
+    //                if let scene = Scene1(fileNamed: "Scene1") {
+    //                    // Set the scale mode to scale to fit the window
+    //                    scene.scaleMode = .aspectFill
+    //
+    //                    // Present the scene
+    //                    view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)));
+    //                }
+    //            }
+    //        }
+    //    }
 }

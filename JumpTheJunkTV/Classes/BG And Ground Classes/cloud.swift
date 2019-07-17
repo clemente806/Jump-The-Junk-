@@ -11,8 +11,12 @@ import SpriteKit
 
 
 class cloud: SKSpriteNode {
-    func moveCloud(){
+    func moveCloudlLento(){
         self.position.x += 12;
+    }
+    
+    func moveCloudVeloce(){
+        self.position.x += 10;
     }
 }
     

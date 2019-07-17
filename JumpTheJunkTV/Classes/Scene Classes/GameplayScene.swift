@@ -42,6 +42,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var barra2: barraRossa?;
 
     private var cloud1: cloud?
+    private var cloud2: cloud?
     
     private var mainCamera: SKCameraNode?;
     private var secondCamera: SKCameraNode?;
@@ -92,7 +93,9 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         manageSecondCamera();
         manageBGsAndGrounds();
         
-        cloud1?.moveCloud()
+        cloud1?.moveCloudlLento()
+        cloud2?.moveCloudVeloce()
+
         
         
         fitRun?.move(status: status, camera: mainCamera!.position.x);
@@ -358,13 +361,15 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         barra2 = childNode(withName: "barraRossa2") as? barraRossa;
         barra2?.initializeBarra()
         
-        cloud1 = childNode(withName: "cloud") as? cloud;
+        cloud1 = childNode(withName: "cloud1") as? cloud;
+        cloud2 = childNode(withName: "cloud2") as? cloud;
         FliyngHotDog1 = childNode(withName: "fliynghotdog") as? fliynghotdog;
         FliyngHotDog1?.initializeHotDog()
 
         
         fridge1 = mainCamera?.childNode(withName: "fridge1") as? Fridge;
         fridge1?.initializeFridge()
+        
         fridge2 = mainCamera?.childNode(withName: "fridge2") as? Fridge;
         fridge2?.initializeFridge()
         

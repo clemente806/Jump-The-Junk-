@@ -100,6 +100,14 @@ class ActionNode: SKSpriteNode {
         texture = unfocusedImage
     }
     
+
+
+    func didGainFocusRestartButton(){
+        self.texture = SKTexture(imageNamed: "banana")
+    }
+
+    func didGainFocusBacktoMenuButton(){
+        self.texture = SKTexture(imageNamed: "apple")
+    }
+
 }
-
-

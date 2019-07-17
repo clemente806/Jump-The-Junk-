@@ -18,10 +18,12 @@ class Fridge: SKSpriteNode {
     
     func initializeFridge(){
         print("11")
-        timerForward = Timer(timeInterval: 0.1, target: self, selector: #selector(moveForward), userInfo: nil, repeats: true)
+//        timerForward = Timer(timeInterval: 0.1, target: self, selector: #selector(moveForward), userInfo: nil, repeats: true)
         print("12")
 
-        timerBackward = Timer(timeInterval: 0.1, target: self, selector: #selector(moveBackward), userInfo: nil, repeats: true)
+//        timerBackward = Timer(timeInterval: 0.1, target: self, selector: #selector(moveBackward), userInfo: nil, repeats: true)
+        
+        self.animation(camera: nil)
     }
     
     @objc func moveForward() {
@@ -54,8 +56,9 @@ class Fridge: SKSpriteNode {
         }
     }
     
-    func animation(camera: SKCameraNode?){
+    private func animation(camera: SKCameraNode?){
         if fridgeStatus == "Avanti", timerForwardCounter == 0 {
+            timerForward = Timer(timeInterval: 0.1, target: self, selector: #selector(moveForward), userInfo: nil, repeats: true)
             RunLoop.current.add(timerForward, forMode: .common)
             //            for _ in 0...10{
             //                self.position.y += 1
@@ -63,6 +66,7 @@ class Fridge: SKSpriteNode {
             //            }
             //            fridgeStatus = "Indietro"
         } else if fridgeStatus == "Indietro", timerBackwardCounter == 0 {
+            timerBackward = Timer(timeInterval: 0.1, target: self, selector: #selector(moveBackward), userInfo: nil, repeats: true)
             RunLoop.current.add(timerBackward, forMode: .common)
             //            for _ in 0...10{
             //                self.position.x -= 1
