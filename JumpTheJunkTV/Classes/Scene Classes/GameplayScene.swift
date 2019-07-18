@@ -44,6 +44,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var cloud1: cloud?
     private var cloud2: cloud?
     
+    private var freccia: Freccia?
+    
     private var mainCamera: SKCameraNode?;
     private var secondCamera: SKCameraNode?;
     
@@ -92,7 +94,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         manageCamera();
         manageSecondCamera();
         manageBGsAndGrounds();
-        
         cloud1?.moveCloudlLento()
         cloud2?.moveCloudVeloce()
 
@@ -184,6 +185,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if status >= 18.6 {
                 status -= 0.6
             }
+            freccia?.moveTo(status: status)
             fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent()
@@ -194,6 +196,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if status >= 18.4 {
                 status -= 0.4
             }
+            freccia?.moveTo(status: status)
             fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent()
@@ -204,6 +207,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if status > 19 {
                 status -= 1.0
             }
+            freccia?.moveTo(status: status)
             fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent()
@@ -214,6 +218,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if status >= 18.8 {
                 status -= 0.8
             }
+            freccia?.moveTo(status: status)
             fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
@@ -224,6 +229,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if status >= 18.2 {
                 status -= 0.2
             }
+            freccia?.moveTo(status: status)
             fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
@@ -236,6 +242,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if status <= 34.5{
                 status += 0.5
             }
+            freccia?.moveTo(status: status)
             fitRun?.initializeFitRun(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
@@ -246,6 +253,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if status <= 34.9{
                 status += 0.1
             }
+            freccia?.moveTo(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
@@ -256,6 +264,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             if status <= 34.3{
                 status += 0.7
             }
+            freccia?.moveTo(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
@@ -267,6 +276,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             {
                 status += 0.3
             }
+            freccia?.moveTo(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
@@ -277,6 +287,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             {
                 status += 1.0;
             }
+            freccia?.moveTo(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
@@ -287,6 +298,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             {
                 status += 3.0;
             }
+            freccia?.moveTo(status: status)
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
@@ -298,6 +310,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 status += 2.4;
                 bmiNum?.text = String(status);
             }
+            freccia?.moveTo(status: status)
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
         }
@@ -308,6 +321,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 status += 2.0;
                 bmiNum?.text = String(status);
             }
+            freccia?.moveTo(status: status)
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
         }
@@ -319,6 +333,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 status += 1.3;
                 bmiNum?.text = String(status);
             }
+            freccia?.moveTo(status: status)
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
         }
@@ -330,15 +345,18 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 status += 1.7;
                 bmiNum?.text = String(status);
             }
-            
+            freccia?.moveTo(status: status)
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
         }
+        
+        
     }
     
     private func initializeGame(){
         
         physicsWorld.contactDelegate = self;
+        GameViewController.playSoundLevel1()
         
         mainCamera = childNode(withName: "MainCamera") as? SKCameraNode;
         secondCamera = childNode(withName: "SecondCamera") as? SKCameraNode;
@@ -376,6 +394,11 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         ground1?.initializeGroundAndFloor();
         ground2?.initializeGroundAndFloor();
         ground3?.initializeGroundAndFloor();
+        
+        
+        freccia = mainCamera?.childNode(withName: "freccia") as? Freccia;
+        
+        freccia?.initializeFreccia()
         
         fitRun = childNode(withName: "FitRun") as? FitRun;
         fitRun?.initializeFitRun(status: status);
@@ -481,7 +504,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
              player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
             
             guard let player = player else { return }
-            
+            player.volume = 3.0
             player.play()
             
         } catch let error {

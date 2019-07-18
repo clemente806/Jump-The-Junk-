@@ -53,6 +53,7 @@ class Intro: SKScene {
             if selected === startNewGame {
                 
                 let game = Scene1(size: size)
+                GameViewController.playSoundButtonPress()
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game, transition: transition)
             }

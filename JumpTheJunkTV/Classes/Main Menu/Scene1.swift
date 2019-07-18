@@ -72,25 +72,29 @@ class Scene1: SKScene{
         
         if press.type == .select {
             if selected === livel1 {
+                GameViewController.playSoundButtonPress()
                 GameViewController.playSoundLevel1()
                 let game = GameplayScene(fileNamed: "GameplayScene")
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene((game?.scene!)!, transition: transition)
             }
             else if selected === livel2 {
-                
+                GameViewController.playSoundButtonPress()
+                GameViewController.playSoundLevel1()
                 let game = Scene1(size: size)
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game, transition: transition)
             }
             else if selected === livel3 {
-                
+                GameViewController.playSoundButtonPress()
+                GameViewController.playSoundLevel1()
                 let game = Scene1(size: size)
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game, transition: transition)
             }
             else if selected === livel4 {
-                
+                GameViewController.playSoundButtonPress()
+                GameViewController.playSoundLevel1()
                 let game = Scene1(size: size)
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game, transition: transition)

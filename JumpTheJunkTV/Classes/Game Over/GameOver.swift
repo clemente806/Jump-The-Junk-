@@ -58,13 +58,15 @@ class GameOver: SKScene {
         
         if press.type == .select {
             if selected === restart{
-                
+                GameViewController.player!.stop()
+                GameViewController.playSoundButtonPress()
                 let game = GameplayScene(fileNamed: "GameplayScene")
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game!.scene!, transition: transition)
             }
             else if selected === mm {
-                
+                GameViewController.player!.stop()
+                GameViewController.playSoundButtonPress()
                 let game = Scene1(size: size)
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game.scene!, transition: transition)

@@ -54,6 +54,9 @@
 		792C1FFD22DF097E00F1354C /* fatJ4.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF722DF097E00F1354C /* fatJ4.png */; };
 		792C1FFE22DF097E00F1354C /* fatJ5.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF822DF097E00F1354C /* fatJ5.png */; };
 		792C200022DF33AE00F1354C /* GameOverMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */; };
+		792C200622E0630E00F1354C /* ButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 792C200522E0630E00F1354C /* ButtonPress.wav */; };
+		792C200822E06DF900F1354C /* musicaStoria.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 792C200722E06DF900F1354C /* musicaStoria.mp3 */; };
+		792C200D22E088DB00F1354C /* Freccia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792C200C22E088DB00F1354C /* Freccia.swift */; };
 		79463D3522CF3653000FE149 /* Intro.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D3422CF3653000FE149 /* Intro.sks */; };
 		79463D4722CF69A6000FE149 /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D4622CF69A6000FE149 /* GameplayScene.sks */; };
 		7956693222CE0AC300CE53C1 /* fitRB8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7956692622CE0AC300CE53C1 /* fitRB8.png */; };
@@ -140,6 +143,9 @@
 		792C1FF722DF097E00F1354C /* fatJ4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ4.png; sourceTree = "<group>"; };
 		792C1FF822DF097E00F1354C /* fatJ5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ5.png; sourceTree = "<group>"; };
 		792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOverMusic.mp3; sourceTree = "<group>"; };
+		792C200522E0630E00F1354C /* ButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonPress.wav; sourceTree = "<group>"; };
+		792C200722E06DF900F1354C /* musicaStoria.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = musicaStoria.mp3; sourceTree = "<group>"; };
+		792C200C22E088DB00F1354C /* Freccia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Freccia.swift; sourceTree = "<group>"; };
 		79463D3422CF3653000FE149 /* Intro.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Intro.sks; sourceTree = "<group>"; };
 		79463D4622CF69A6000FE149 /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
 		7956692622CE0AC300CE53C1 /* fitRB8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitRB8.png; sourceTree = "<group>"; };
@@ -236,6 +242,8 @@
 		7910FD1E22C60E7C008061C6 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				792C200722E06DF900F1354C /* musicaStoria.mp3 */,
+				792C200522E0630E00F1354C /* ButtonPress.wav */,
 				792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */,
 				7910FD1F22C60E7C008061C6 /* junk.wav */,
 				7910FD2022C60E7C008061C6 /* jump.wav */,
@@ -319,6 +327,7 @@
 				7910FD3A22C60E97008061C6 /* GroundClass.swift */,
 				79191E2922D61FB2001DFED3 /* cloud.swift */,
 				798164AF22DC676100C9110A /* FliyngHotDog.swift */,
+				792C200C22E088DB00F1354C /* Freccia.swift */,
 			);
 			path = "BG And Ground Classes";
 			sourceTree = "<group>";
@@ -530,6 +539,7 @@
 				7910FD9722C60F35008061C6 /* fitJ5.png in Resources */,
 				7956693622CE0AC300CE53C1 /* fitRB5.png in Resources */,
 				7910FD9A22C60F35008061C6 /* fitJ3.png in Resources */,
+				792C200622E0630E00F1354C /* ButtonPress.wav in Resources */,
 				7910FD5B22C60EC4008061C6 /* Scene1.sks in Resources */,
 				798164D222DDE5EE00C9110A /* fatR1.png in Resources */,
 				798164CA22DDE5EE00C9110A /* fatR7.png in Resources */,
@@ -541,6 +551,7 @@
 				798164C922DDE5EE00C9110A /* fatR6.png in Resources */,
 				7910FD1522C60E3F008061C6 /* Main.storyboard in Resources */,
 				7956693322CE0AC300CE53C1 /* fitRB9.png in Resources */,
+				792C200822E06DF900F1354C /* musicaStoria.mp3 in Resources */,
 				798164D022DDE5EE00C9110A /* fatR10.png in Resources */,
 				7910FDAC22C60F48008061C6 /* fitR10.png in Resources */,
 				7910FDAB22C60F48008061C6 /* fitR12.png in Resources */,
@@ -599,6 +610,7 @@
 				790085A522D5D8BC00F66AC1 /* barraRossa.swift in Sources */,
 				79C1EA7622CA1DC60041EDCC /* ActionNode.swift in Sources */,
 				7910FD4122C60E97008061C6 /* Scene1.swift in Sources */,
+				792C200D22E088DB00F1354C /* Freccia.swift in Sources */,
 				7910FD3D22C60E97008061C6 /* FitRun.swift in Sources */,
 				7910FDB622C62139008061C6 /* ButtonNode.swift in Sources */,
 			);
