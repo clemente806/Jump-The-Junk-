@@ -21,18 +21,16 @@ class Freccia: SKSpriteNode {
     }
     
     func moveTo(status: Double){
-        print("Clem+")
         if statusFreccia! < status{
             statusFreccia! += 1.0
             self.position.x += 20
 //            AFFIUNGERE IF DI CONTROLLO
         }
         else if statusFreccia! > status{
-            print("clem-")
             statusFreccia! -= 1.0
             self.position.x -= 20
         }
-        else {print("clem");return}
+        else {return}
     }
 
 }

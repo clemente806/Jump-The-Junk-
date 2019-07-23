@@ -46,6 +46,13 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     private var freccia: Freccia?
     
+    private var star1: Star?
+    private var star2: Star?
+    private var star3: Star?
+    private var star4: Star?
+    private var star5: Star?
+    private var star6: Star?
+    
     private var mainCamera: SKCameraNode?;
     private var secondCamera: SKCameraNode?;
     
@@ -83,7 +90,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         }
         ScoreNum?.text = String(score);
         
-        if fitRun!.position.x < self.mainCamera!.position.x - self.scene!.frame.width / 2{
+        if fitRun!.position.x < self.mainCamera!.position.x - (self.scene!.frame.width / 2 - 60) {
             fitRun?.removeFromParent()
             gameOver = false
         }
@@ -96,7 +103,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         manageBGsAndGrounds();
         cloud1?.moveCloudlLento()
         cloud2?.moveCloudVeloce()
-
         
         
         fitRun?.move(status: status, camera: mainCamera!.position.x);
@@ -156,7 +162,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
 //        let thirdBody = lancio?.physicsBody?.allContactedBodies()
@@ -346,7 +351,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 bmiNum?.text = String(status);
             }
             freccia?.moveTo(status: status)
-            secondBody.node?.removeFromParent();
+            secondBody.node?.removeFromParent()
             fitRun?.initializeFitRun(status: status)
         }
         
@@ -382,20 +387,38 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         cloud1 = childNode(withName: "cloud1") as? cloud;
         cloud2 = childNode(withName: "cloud2") as? cloud;
         FliyngHotDog1 = childNode(withName: "fliynghotdog") as? fliynghotdog;
-        FliyngHotDog1?.initializeHotDog()
+        FliyngHotDog1?.initializeHotDog(camera: mainCamera!)
 
         
         fridge1 = mainCamera?.childNode(withName: "fridge1") as? Fridge;
         fridge1?.initializeFridge()
+        fridge1?.animateFridge()
         
-        fridge2 = mainCamera?.childNode(withName: "fridge2") as? Fridge;
+        fridge2 = mainCamera?.childNode(withName: "fridgeB") as? Fridge;
         fridge2?.initializeFridge()
         
         ground1?.initializeGroundAndFloor();
         ground2?.initializeGroundAndFloor();
         ground3?.initializeGroundAndFloor();
         
+        star1 = mainCamera?.childNode(withName: "star1") as? Star
+        star1?.initializeStar()
         
+        star2 = mainCamera?.childNode(withName: "star2") as? Star
+        star2?.initializeStar()
+        
+        star3 = mainCamera?.childNode(withName: "star3") as? Star
+        star3?.initializeStar()
+        
+        star4 = mainCamera?.childNode(withName: "star4") as? Star
+        star4?.initializeStar()
+        
+        star5 = mainCamera?.childNode(withName: "star5") as? Star
+        star5?.initializeStar()
+        
+        star6 = mainCamera?.childNode(withName: "star6") as? Star
+        star6?.initializeStar()
+
         freccia = mainCamera?.childNode(withName: "freccia") as? Freccia;
         
         freccia?.initializeFreccia()
@@ -582,27 +605,3 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

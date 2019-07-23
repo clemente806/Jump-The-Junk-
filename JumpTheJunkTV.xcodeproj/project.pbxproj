@@ -57,6 +57,30 @@
 		792C200622E0630E00F1354C /* ButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 792C200522E0630E00F1354C /* ButtonPress.wav */; };
 		792C200822E06DF900F1354C /* musicaStoria.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 792C200722E06DF900F1354C /* musicaStoria.mp3 */; };
 		792C200D22E088DB00F1354C /* Freccia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792C200C22E088DB00F1354C /* Freccia.swift */; };
+		792C200F22E1B2CC00F1354C /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792C200E22E1B2CC00F1354C /* Star.swift */; };
+		792C203922E1C02300F1354C /* star11.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C202D22E1C02300F1354C /* star11.png */; };
+		792C203A22E1C02300F1354C /* star4.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C202E22E1C02300F1354C /* star4.png */; };
+		792C203B22E1C02300F1354C /* star0.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C202F22E1C02300F1354C /* star0.png */; };
+		792C203C22E1C02300F1354C /* star6.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203022E1C02300F1354C /* star6.png */; };
+		792C203D22E1C02300F1354C /* star9.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203122E1C02300F1354C /* star9.png */; };
+		792C203E22E1C02300F1354C /* star7.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203222E1C02300F1354C /* star7.png */; };
+		792C203F22E1C02300F1354C /* star3.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203322E1C02300F1354C /* star3.png */; };
+		792C204022E1C02300F1354C /* star5.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203422E1C02300F1354C /* star5.png */; };
+		792C204122E1C02300F1354C /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203522E1C02300F1354C /* star1.png */; };
+		792C204222E1C02300F1354C /* star2.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203622E1C02300F1354C /* star2.png */; };
+		792C204322E1C02300F1354C /* star8.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203722E1C02300F1354C /* star8.png */; };
+		792C204422E1C02300F1354C /* star10.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C203822E1C02300F1354C /* star10.png */; };
+		792C204922E1D1E100F1354C /* fridge7.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C204622E1D1E100F1354C /* fridge7.png */; };
+		792C204A22E1D1E100F1354C /* fridge5.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C204722E1D1E100F1354C /* fridge5.png */; };
+		792C204B22E1D1E100F1354C /* fridge6.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C204822E1D1E100F1354C /* fridge6.png */; };
+		792C204F22E1D4EE00F1354C /* fridge8.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C204E22E1D4EE00F1354C /* fridge8.png */; };
+		792C205122E1D62E00F1354C /* fridge9.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C205022E1D62E00F1354C /* fridge9.png */; };
+		792C205322E1D64900F1354C /* fridge10.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C205222E1D64900F1354C /* fridge10.png */; };
+		792C205522E1D65200F1354C /* fridge11.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C205422E1D65200F1354C /* fridge11.png */; };
+		792C205722E1D65A00F1354C /* fridge12.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C205622E1D65A00F1354C /* fridge12.png */; };
+		792C205922E1D66000F1354C /* fridge13.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C205822E1D66000F1354C /* fridge13.png */; };
+		792C205B22E1D66D00F1354C /* fridge14.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C205A22E1D66D00F1354C /* fridge14.png */; };
+		792C205D22E1D67500F1354C /* fridge15.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C205C22E1D67500F1354C /* fridge15.png */; };
 		79463D3522CF3653000FE149 /* Intro.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D3422CF3653000FE149 /* Intro.sks */; };
 		79463D4722CF69A6000FE149 /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79463D4622CF69A6000FE149 /* GameplayScene.sks */; };
 		7956693222CE0AC300CE53C1 /* fitRB8.png in Resources */ = {isa = PBXBuildFile; fileRef = 7956692622CE0AC300CE53C1 /* fitRB8.png */; };
@@ -146,6 +170,30 @@
 		792C200522E0630E00F1354C /* ButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonPress.wav; sourceTree = "<group>"; };
 		792C200722E06DF900F1354C /* musicaStoria.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = musicaStoria.mp3; sourceTree = "<group>"; };
 		792C200C22E088DB00F1354C /* Freccia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Freccia.swift; sourceTree = "<group>"; };
+		792C200E22E1B2CC00F1354C /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		792C202D22E1C02300F1354C /* star11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star11.png; sourceTree = "<group>"; };
+		792C202E22E1C02300F1354C /* star4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star4.png; sourceTree = "<group>"; };
+		792C202F22E1C02300F1354C /* star0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star0.png; sourceTree = "<group>"; };
+		792C203022E1C02300F1354C /* star6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star6.png; sourceTree = "<group>"; };
+		792C203122E1C02300F1354C /* star9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star9.png; sourceTree = "<group>"; };
+		792C203222E1C02300F1354C /* star7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star7.png; sourceTree = "<group>"; };
+		792C203322E1C02300F1354C /* star3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star3.png; sourceTree = "<group>"; };
+		792C203422E1C02300F1354C /* star5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star5.png; sourceTree = "<group>"; };
+		792C203522E1C02300F1354C /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
+		792C203622E1C02300F1354C /* star2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star2.png; sourceTree = "<group>"; };
+		792C203722E1C02300F1354C /* star8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star8.png; sourceTree = "<group>"; };
+		792C203822E1C02300F1354C /* star10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star10.png; sourceTree = "<group>"; };
+		792C204622E1D1E100F1354C /* fridge7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge7.png; sourceTree = "<group>"; };
+		792C204722E1D1E100F1354C /* fridge5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge5.png; sourceTree = "<group>"; };
+		792C204822E1D1E100F1354C /* fridge6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge6.png; sourceTree = "<group>"; };
+		792C204E22E1D4EE00F1354C /* fridge8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge8.png; sourceTree = "<group>"; };
+		792C205022E1D62E00F1354C /* fridge9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge9.png; sourceTree = "<group>"; };
+		792C205222E1D64900F1354C /* fridge10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge10.png; sourceTree = "<group>"; };
+		792C205422E1D65200F1354C /* fridge11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge11.png; sourceTree = "<group>"; };
+		792C205622E1D65A00F1354C /* fridge12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge12.png; sourceTree = "<group>"; };
+		792C205822E1D66000F1354C /* fridge13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge13.png; sourceTree = "<group>"; };
+		792C205A22E1D66D00F1354C /* fridge14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge14.png; sourceTree = "<group>"; };
+		792C205C22E1D67500F1354C /* fridge15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fridge15.png; sourceTree = "<group>"; };
 		79463D3422CF3653000FE149 /* Intro.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Intro.sks; sourceTree = "<group>"; };
 		79463D4622CF69A6000FE149 /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
 		7956692622CE0AC300CE53C1 /* fitRB8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitRB8.png; sourceTree = "<group>"; };
@@ -221,6 +269,8 @@
 		7910FD0822C60E3F008061C6 /* JumpTheJunkTV */ = {
 			isa = PBXGroup;
 			children = (
+				792C204522E1D1CA00F1354C /* fridge Images */,
+				792C201022E1B43600F1354C /* Star Images */,
 				792C1FF222DF094D00F1354C /* FatJumpBrufoli Images */,
 				798164BC22DDE59E00C9110A /* FatRunBrufoli Images */,
 				798164B122DC679100C9110A /* FliyngHotDog */,
@@ -328,6 +378,7 @@
 				79191E2922D61FB2001DFED3 /* cloud.swift */,
 				798164AF22DC676100C9110A /* FliyngHotDog.swift */,
 				792C200C22E088DB00F1354C /* Freccia.swift */,
+				792C200E22E1B2CC00F1354C /* Star.swift */,
 			);
 			path = "BG And Ground Classes";
 			sourceTree = "<group>";
@@ -394,6 +445,43 @@
 				792C1FF422DF097E00F1354C /* fatJ6.png */,
 			);
 			path = "FatJumpBrufoli Images";
+			sourceTree = "<group>";
+		};
+		792C201022E1B43600F1354C /* Star Images */ = {
+			isa = PBXGroup;
+			children = (
+				792C202F22E1C02300F1354C /* star0.png */,
+				792C203522E1C02300F1354C /* star1.png */,
+				792C203622E1C02300F1354C /* star2.png */,
+				792C203322E1C02300F1354C /* star3.png */,
+				792C202E22E1C02300F1354C /* star4.png */,
+				792C203422E1C02300F1354C /* star5.png */,
+				792C203022E1C02300F1354C /* star6.png */,
+				792C203222E1C02300F1354C /* star7.png */,
+				792C203722E1C02300F1354C /* star8.png */,
+				792C203122E1C02300F1354C /* star9.png */,
+				792C203822E1C02300F1354C /* star10.png */,
+				792C202D22E1C02300F1354C /* star11.png */,
+			);
+			path = "Star Images";
+			sourceTree = "<group>";
+		};
+		792C204522E1D1CA00F1354C /* fridge Images */ = {
+			isa = PBXGroup;
+			children = (
+				792C204722E1D1E100F1354C /* fridge5.png */,
+				792C204822E1D1E100F1354C /* fridge6.png */,
+				792C204622E1D1E100F1354C /* fridge7.png */,
+				792C204E22E1D4EE00F1354C /* fridge8.png */,
+				792C205022E1D62E00F1354C /* fridge9.png */,
+				792C205222E1D64900F1354C /* fridge10.png */,
+				792C205422E1D65200F1354C /* fridge11.png */,
+				792C205622E1D65A00F1354C /* fridge12.png */,
+				792C205822E1D66000F1354C /* fridge13.png */,
+				792C205A22E1D66D00F1354C /* fridge14.png */,
+				792C205C22E1D67500F1354C /* fridge15.png */,
+			);
+			path = "fridge Images";
 			sourceTree = "<group>";
 		};
 		7956692522CE0AC300CE53C1 /* FitRun livelBlock */ = {
@@ -520,10 +608,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				79463D3522CF3653000FE149 /* Intro.sks in Resources */,
+				792C203F22E1C02300F1354C /* star3.png in Resources */,
 				79463D4722CF69A6000FE149 /* GameplayScene.sks in Resources */,
 				7910FDA922C60F48008061C6 /* fitR8.png in Resources */,
 				7910FD9922C60F35008061C6 /* fitJ2.png in Resources */,
 				7910FDB022C60F48008061C6 /* fitR1.png in Resources */,
+				792C204322E1C02300F1354C /* star8.png in Resources */,
+				792C205522E1D65200F1354C /* fridge11.png in Resources */,
 				7910FDB422C60F48008061C6 /* fitR6.png in Resources */,
 				798164CC22DDE5EE00C9110A /* fatR2.png in Resources */,
 				7910FD9822C60F35008061C6 /* fitJ6.png in Resources */,
@@ -531,22 +622,34 @@
 				798164B322DC67C500C9110A /* hotdog1.png in Resources */,
 				7910FD2722C60E7C008061C6 /* music.mp3 in Resources */,
 				798164D122DDE5EE00C9110A /* fatR11.png in Resources */,
+				792C204A22E1D1E100F1354C /* fridge5.png in Resources */,
 				7910FD2522C60E7C008061C6 /* jump.wav in Resources */,
 				798164B822DC67D600C9110A /* hotdog2.png in Resources */,
 				798164D322DDE5EE00C9110A /* fatR4.png in Resources */,
+				792C205B22E1D66D00F1354C /* fridge14.png in Resources */,
+				792C203D22E1C02300F1354C /* star9.png in Resources */,
 				7956693C22CE0AC300CE53C1 /* fitRB3.png in Resources */,
+				792C204922E1D1E100F1354C /* fridge7.png in Resources */,
 				7910FD2422C60E7C008061C6 /* junk.wav in Resources */,
 				7910FD9722C60F35008061C6 /* fitJ5.png in Resources */,
+				792C203B22E1C02300F1354C /* star0.png in Resources */,
+				792C204422E1C02300F1354C /* star10.png in Resources */,
+				792C203A22E1C02300F1354C /* star4.png in Resources */,
 				7956693622CE0AC300CE53C1 /* fitRB5.png in Resources */,
 				7910FD9A22C60F35008061C6 /* fitJ3.png in Resources */,
 				792C200622E0630E00F1354C /* ButtonPress.wav in Resources */,
 				7910FD5B22C60EC4008061C6 /* Scene1.sks in Resources */,
 				798164D222DDE5EE00C9110A /* fatR1.png in Resources */,
+				792C204F22E1D4EE00F1354C /* fridge8.png in Resources */,
 				798164CA22DDE5EE00C9110A /* fatR7.png in Resources */,
+				792C204022E1C02300F1354C /* star5.png in Resources */,
+				792C204122E1C02300F1354C /* star1.png in Resources */,
 				7910FD2622C60E7C008061C6 /* good.wav in Resources */,
 				798164CB22DDE5EE00C9110A /* fatR8.png in Resources */,
 				7956693D22CE0AC300CE53C1 /* fitRB1.png in Resources */,
 				792C1FFE22DF097E00F1354C /* fatJ5.png in Resources */,
+				792C205122E1D62E00F1354C /* fridge9.png in Resources */,
+				792C204222E1C02300F1354C /* star2.png in Resources */,
 				798164BB22DC916900C9110A /* Assets.xcassets in Resources */,
 				798164C922DDE5EE00C9110A /* fatR6.png in Resources */,
 				7910FD1522C60E3F008061C6 /* Main.storyboard in Resources */,
@@ -557,11 +660,15 @@
 				7910FDAB22C60F48008061C6 /* fitR12.png in Resources */,
 				798164CF22DDE5EE00C9110A /* fatR9.png in Resources */,
 				7910FDB322C60F48008061C6 /* fitR7.png in Resources */,
+				792C205322E1D64900F1354C /* fridge10.png in Resources */,
 				7956693222CE0AC300CE53C1 /* fitRB8.png in Resources */,
+				792C203922E1C02300F1354C /* star11.png in Resources */,
 				798164B922DC67D600C9110A /* hotdog3.png in Resources */,
 				7910FDB122C60F48008061C6 /* fitR4.png in Resources */,
 				798164D422DDE5EE00C9110A /* fatR12.png in Resources */,
 				792C1FFB22DF097E00F1354C /* fatJ3.png in Resources */,
+				792C203C22E1C02300F1354C /* star6.png in Resources */,
+				792C205722E1D65A00F1354C /* fridge12.png in Resources */,
 				7910FDB222C60F48008061C6 /* fitR5.png in Resources */,
 				792C1FFA22DF097E00F1354C /* fatJ6.png in Resources */,
 				7956693822CE0AC300CE53C1 /* fitRB10.png in Resources */,
@@ -570,6 +677,7 @@
 				792C1FFC22DF097E00F1354C /* fatJ2.png in Resources */,
 				7910FDAA22C60F48008061C6 /* fitR9.png in Resources */,
 				7910FD9B22C60F35008061C6 /* fitJ1.png in Resources */,
+				792C204B22E1D1E100F1354C /* fridge6.png in Resources */,
 				792C1FFD22DF097E00F1354C /* fatJ4.png in Resources */,
 				792C1FF922DF097E00F1354C /* fatJ1.png in Resources */,
 				7956693922CE0AC300CE53C1 /* fitRB11.png in Resources */,
@@ -577,12 +685,15 @@
 				7910FDAE22C60F48008061C6 /* fitR2.png in Resources */,
 				7910FDAD22C60F48008061C6 /* fitR11.png in Resources */,
 				792C200022DF33AE00F1354C /* GameOverMusic.mp3 in Resources */,
+				792C205922E1D66000F1354C /* fridge13.png in Resources */,
+				792C205D22E1D67500F1354C /* fridge15.png in Resources */,
 				7910FD5A22C60EC4008061C6 /* GameOver.sks in Resources */,
 				7956693422CE0AC300CE53C1 /* fitRB4.png in Resources */,
 				798164B722DC67D600C9110A /* hotdog4.png in Resources */,
 				7910FDAF22C60F48008061C6 /* fitR3.png in Resources */,
 				7910FD9622C60F35008061C6 /* fitJ4.png in Resources */,
 				7956693722CE0AC300CE53C1 /* fitRB7.png in Resources */,
+				792C203E22E1C02300F1354C /* star7.png in Resources */,
 				7956693A22CE0AC300CE53C1 /* fitRB6.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,6 +724,7 @@
 				792C200D22E088DB00F1354C /* Freccia.swift in Sources */,
 				7910FD3D22C60E97008061C6 /* FitRun.swift in Sources */,
 				7910FDB622C62139008061C6 /* ButtonNode.swift in Sources */,
+				792C200F22E1B2CC00F1354C /* Star.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
