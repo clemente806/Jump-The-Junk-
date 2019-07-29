@@ -15,7 +15,7 @@ class GameViewController: UIViewController {
     
     static var player: AVAudioPlayer?
     static var player2: AVAudioPlayer?
-    
+
     var gameScene : SKScene? {
         return (self.view as! SKView).scene
     }

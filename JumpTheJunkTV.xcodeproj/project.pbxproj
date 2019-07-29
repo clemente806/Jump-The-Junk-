@@ -114,6 +114,8 @@
 		798164D222DDE5EE00C9110A /* fatR1.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164C622DDE5EC00C9110A /* fatR1.png */; };
 		798164D322DDE5EE00C9110A /* fatR4.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164C722DDE5ED00C9110A /* fatR4.png */; };
 		798164D422DDE5EE00C9110A /* fatR12.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164C822DDE5ED00C9110A /* fatR12.png */; };
+		79A970EA22E9AE3700DA9ABC /* CMPedometerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A970E922E9AE3700DA9ABC /* CMPedometerData.swift */; };
+		79A970EC22E9B0BF00DA9ABC /* CMAltidudineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A970EB22E9B0BF00DA9ABC /* CMAltidudineData.swift */; };
 		79C1EA7622CA1DC60041EDCC /* ActionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C1EA7522CA1DC60041EDCC /* ActionNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -227,6 +229,8 @@
 		798164C622DDE5EC00C9110A /* fatR1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR1.png; sourceTree = "<group>"; };
 		798164C722DDE5ED00C9110A /* fatR4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR4.png; sourceTree = "<group>"; };
 		798164C822DDE5ED00C9110A /* fatR12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR12.png; sourceTree = "<group>"; };
+		79A970E922E9AE3700DA9ABC /* CMPedometerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometerData.swift; sourceTree = "<group>"; };
+		79A970EB22E9B0BF00DA9ABC /* CMAltidudineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMAltidudineData.swift; sourceTree = "<group>"; };
 		79C1EA7522CA1DC60041EDCC /* ActionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,6 +321,8 @@
 				7910FD3522C60E97008061C6 /* Scene Classes */,
 				7910FD3722C60E97008061C6 /* BG And Ground Classes */,
 				7910FD3B22C60E97008061C6 /* Item Controller */,
+				79A970E922E9AE3700DA9ABC /* CMPedometerData.swift */,
+				79A970EB22E9B0BF00DA9ABC /* CMAltidudineData.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -721,7 +727,9 @@
 				790085A522D5D8BC00F66AC1 /* barraRossa.swift in Sources */,
 				79C1EA7622CA1DC60041EDCC /* ActionNode.swift in Sources */,
 				7910FD4122C60E97008061C6 /* Scene1.swift in Sources */,
+				79A970EA22E9AE3700DA9ABC /* CMPedometerData.swift in Sources */,
 				792C200D22E088DB00F1354C /* Freccia.swift in Sources */,
+				79A970EC22E9B0BF00DA9ABC /* CMAltidudineData.swift in Sources */,
 				7910FD3D22C60E97008061C6 /* FitRun.swift in Sources */,
 				7910FDB622C62139008061C6 /* ButtonNode.swift in Sources */,
 				792C200F22E1B2CC00F1354C /* Star.swift in Sources */,
@@ -862,12 +870,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4HH62WUDHN;
 				INFOPLIST_FILE = JumpTheJunkTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = clemente.JumpTheJunkTV;
+				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunkTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -880,12 +889,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4HH62WUDHN;
 				INFOPLIST_FILE = JumpTheJunkTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = clemente.JumpTheJunkTV;
+				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunkTV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;

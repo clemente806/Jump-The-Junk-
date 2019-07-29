@@ -8,6 +8,8 @@
 
 import SpriteKit
 import AVFoundation
+import GameController
+
 
 class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
@@ -18,28 +20,40 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     var player: AVAudioPlayer?
     
     var getTimer: Timer?
-
     
-    private var bg1: BGClass?;
-    private var bg2: BGClass?;
-    private var bg3: BGClass?;
+    private var bg1: BGClass?
+    private var bg2: BGClass?
+    private var bg3: BGClass?
     
-    private var ground1: GroundClass?;
-    private var ground2: GroundClass?;
-    private var ground3: GroundClass?;
+    private var ground1: GroundClass?
+    private var ground2: GroundClass?
+    private var ground3: GroundClass?
     
-    private var tree1: TreeClass?;
-    private var tree2: TreeClass?;
-    private var tree3: TreeClass?;
+    private var tree1: TreeClass?
+    private var tree2: TreeClass?
+    private var tree3: TreeClass?
     
-    private var fitRun: FitRun?;
-    private var FliyngHotDog1: fliynghotdog?;
+    private var fitRun: FitRun?
+    private var FliyngHotDog1: fliynghotdog?
     
-    private var fridge1: Fridge?;
-    private var fridge2: Fridge?;
+    private var fridge1: Fridge?
+    private var fridge2: Fridge?
     
-    private var barra1: barraRossa?;
-    private var barra2: barraRossa?;
+    private var barra1: barraRossa?
+    private var barra2: barraRossa?
+    private var barra4: barraRossa?
+    private var barra5: barraRossa?
+    private var barra6: barraRossa?
+    private var barra7: barraRossa?
+    private var barra8: barraRossa?
+    private var barra9: barraRossa?
+    private var barra10: barraRossa?
+    private var barra11: barraRossa?
+    private var barra12: barraRossa?
+    private var barra13: barraRossa?
+    private var barra14: barraRossa?
+    private var barra15: barraRossa?
+    private var barra16: barraRossa?
 
     private var cloud1: cloud?
     private var cloud2: cloud?
@@ -52,14 +66,19 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var star4: Star?
     private var star5: Star?
     private var star6: Star?
+    private var star7: Star?
+    private var star8: Star?
+    private var star9: Star?
+    private var star10: Star?
+    private var star11: Star?
     
     private var mainCamera: SKCameraNode?;
-    private var secondCamera: SKCameraNode?;
+    private var secondCamera: SKCameraNode?
     
-    private var itemController = ItemController();
+    private var itemController = ItemController()
     
-    private var bmiNum: SKLabelNode?;
-    private var ScoreNum: SKLabelNode?;
+    private var bmiNum: SKLabelNode?
+    private var ScoreNum: SKLabelNode?
     private var score = 0
     public var status = 18.0;
     
@@ -69,11 +88,14 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     var lancio : SKSpriteNode?
     var rotLancio = true
     
-    var firstBody = SKPhysicsBody();
-    var secondBody = SKPhysicsBody();
+    var firstBody = SKPhysicsBody()
+    var secondBody = SKPhysicsBody()
+    
+    var controller: GCController?
     
     override func didMove (to view: SKView) {
-        initializeGame();
+        initializeGame()
+        NotificationCenter.default.addObserver(self, selector: #selector(controllerDidConnect(note:)), name: NSNotification.Name.GCControllerDidConnect, object: nil)
         
     }
     
@@ -95,12 +117,12 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             gameOver = false
         }
         if !gameOver {
-            gameover();
+            gameover()
         }
         
-        manageCamera();
-        manageSecondCamera();
-        manageBGsAndGrounds();
+        manageCamera()
+        manageSecondCamera()
+        manageBGsAndGrounds()
         cloud1?.moveCloudlLento()
         cloud2?.moveCloudVeloce()
         
@@ -384,6 +406,45 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         barra2 = childNode(withName: "barraRossa2") as? barraRossa;
         barra2?.initializeBarra()
         
+        barra4 = childNode(withName: "barraRossa4") as? barraRossa;
+        barra4?.initializeBarra()
+        
+        barra5 = childNode(withName: "barraRossa5") as? barraRossa;
+        barra5?.initializeBarra()
+        
+        barra6 = childNode(withName: "barraRossa6") as? barraRossa;
+        barra6?.initializeBarra()
+        
+        barra7 = childNode(withName: "barraRossa7") as? barraRossa;
+        barra7?.initializeBarra()
+        
+        barra8 = childNode(withName: "barraRossa8") as? barraRossa;
+        barra8?.initializeBarra()
+        
+        barra9 = childNode(withName: "barraRossa9") as? barraRossa;
+        barra9?.initializeBarra()
+        
+        barra10 = childNode(withName: "barraRossa10") as? barraRossa;
+        barra10?.initializeBarra()
+        
+        barra11 = childNode(withName: "barraRossa11") as? barraRossa;
+        barra11?.initializeBarra()
+        
+        barra12 = childNode(withName: "barraRossa12") as? barraRossa;
+        barra12?.initializeBarra()
+        
+        barra13 = childNode(withName: "barraRossa13") as? barraRossa;
+        barra13?.initializeBarra()
+        
+        barra14 = childNode(withName: "barraRossa14") as? barraRossa;
+        barra14?.initializeBarra()
+        
+        barra15 = childNode(withName: "barraRossa15") as? barraRossa;
+        barra15?.initializeBarra()
+        
+        barra16 = childNode(withName: "barraRossa16") as? barraRossa;
+        barra16?.initializeBarra()
+        
         cloud1 = childNode(withName: "cloud1") as? cloud;
         cloud2 = childNode(withName: "cloud2") as? cloud;
         FliyngHotDog1 = childNode(withName: "fliynghotdog") as? fliynghotdog;
@@ -418,6 +479,21 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         
         star6 = mainCamera?.childNode(withName: "star6") as? Star
         star6?.initializeStar()
+        
+        star7 = mainCamera?.childNode(withName: "star7") as? Star
+        star7?.initializeStar()
+        
+        star8 = mainCamera?.childNode(withName: "star8") as? Star
+        star8?.initializeStar()
+        
+        star9 = mainCamera?.childNode(withName: "star9") as? Star
+        star9?.initializeStar()
+        
+        star10 = mainCamera?.childNode(withName: "star10") as? Star
+        star10?.initializeStar()
+        
+        star11 = mainCamera?.childNode(withName: "star11") as? Star
+        star11?.initializeStar()
 
         freccia = mainCamera?.childNode(withName: "freccia") as? Freccia;
         
@@ -479,7 +555,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         lancio?.position.y = secondCamera!.position.y
         lancio?.zPosition = 4
         lancio?.physicsBody?.affectedByGravity = true
-        lancio?.physicsBody?.applyImpulse(CGVector(dx: 120,dy: 30))
+        lancio?.physicsBody?.applyImpulse(CGVector(dx: 135,dy: 120))
         
 
         
@@ -502,11 +578,12 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 || child.name == "donut" || child.name == "fries" || child.name == "barraRossa"
                 || child.name == "cloud" || child.name == "fliynghotdog"
                 || child.name == "ciboFrigo1" || child.name == "ciboFrigo2"
-                || child.name == "ciboFrigo3" || child.name == "ciboFrigo4"
-{
+                || child.name == "ciboFrigo3" || child.name == "ciboFrigo4" {
+                
                 if child.position.x < self.mainCamera!.position.x - self.scene!.frame.width / 2 {
                     child.removeFromParent();
                 }
+            
             }
         }
     }
@@ -602,6 +679,18 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             
         } catch let error {
             print(error.localizedDescription)
+        }
+    }
+    
+    @objc func controllerDidConnect(note: NSNotification)
+    {
+        print("DENTro")
+        controller = GCController.controllers().first
+        controller?.motion?.valueChangedHandler = {(motion: GCMotion)->() in
+        let userAccelerationLabelXString = "X = \(String(format: "%.3f", motion.userAcceleration.x))\n"
+        let userAccelerationLabelYString = "Y = \(String(format: "%.3f", motion.userAcceleration.y))\n"
+        let userAccelerationLabelZString = "Z = \(String(format: "%.3f", motion.userAcceleration.z))"
+        print(userAccelerationLabelXString, userAccelerationLabelYString, userAccelerationLabelZString)
         }
     }
 }
