@@ -63,16 +63,16 @@ class FitRun: SKSpriteNode {
     
     func move(status: Double, camera: CGFloat) {
         if status > 25 {
-            self.position.x += 12;
+            self.position.x += 7;
         }
 
             //RECUPERA POSIZIONE INIZIALE
         else if (self.position.x < camera) {
-                self.position.x += 14
+                self.position.x += 9
             
                 }
             else {
-                self.position.x += 13
+                self.position.x += 8
             }
     }
 

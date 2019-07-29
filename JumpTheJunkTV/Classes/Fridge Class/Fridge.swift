@@ -19,7 +19,7 @@ class Fridge: SKSpriteNode {
     private var animateFridgeAction = SKAction();
     
     func animateFridge() {
-        print("aa")
+       
         fridgeAnimation.removeAll()
         for i in 5...15
         {

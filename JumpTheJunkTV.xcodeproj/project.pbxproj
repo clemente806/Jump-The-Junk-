@@ -101,7 +101,6 @@
 		798164B722DC67D600C9110A /* hotdog4.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164B422DC67D600C9110A /* hotdog4.png */; };
 		798164B822DC67D600C9110A /* hotdog2.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164B522DC67D600C9110A /* hotdog2.png */; };
 		798164B922DC67D600C9110A /* hotdog3.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164B622DC67D600C9110A /* hotdog3.png */; };
-		798164BB22DC916900C9110A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 798164BA22DC916800C9110A /* Assets.xcassets */; };
 		798164C922DDE5EE00C9110A /* fatR6.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164BD22DDE5E700C9110A /* fatR6.png */; };
 		798164CA22DDE5EE00C9110A /* fatR7.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164BE22DDE5E800C9110A /* fatR7.png */; };
 		798164CB22DDE5EE00C9110A /* fatR8.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164BF22DDE5E800C9110A /* fatR8.png */; };
@@ -114,6 +113,8 @@
 		798164D222DDE5EE00C9110A /* fatR1.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164C622DDE5EC00C9110A /* fatR1.png */; };
 		798164D322DDE5EE00C9110A /* fatR4.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164C722DDE5ED00C9110A /* fatR4.png */; };
 		798164D422DDE5EE00C9110A /* fatR12.png in Resources */ = {isa = PBXBuildFile; fileRef = 798164C822DDE5ED00C9110A /* fatR12.png */; };
+		799BCE8822EF2AF7003AC566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799BCE8722EF2AF7003AC566 /* Assets.xcassets */; };
+		799BCE8F22EF3FD7003AC566 /* howTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BCE8E22EF3FD7003AC566 /* howTo.swift */; };
 		79A970EA22E9AE3700DA9ABC /* CMPedometerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A970E922E9AE3700DA9ABC /* CMPedometerData.swift */; };
 		79A970EC22E9B0BF00DA9ABC /* CMAltidudineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A970EB22E9B0BF00DA9ABC /* CMAltidudineData.swift */; };
 		79C1EA7622CA1DC60041EDCC /* ActionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C1EA7522CA1DC60041EDCC /* ActionNode.swift */; };
@@ -216,7 +217,6 @@
 		798164B422DC67D600C9110A /* hotdog4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotdog4.png; sourceTree = "<group>"; };
 		798164B522DC67D600C9110A /* hotdog2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotdog2.png; sourceTree = "<group>"; };
 		798164B622DC67D600C9110A /* hotdog3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotdog3.png; sourceTree = "<group>"; };
-		798164BA22DC916800C9110A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = JumpTheJunkTV/Assets.xcassets; sourceTree = "<group>"; };
 		798164BD22DDE5E700C9110A /* fatR6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR6.png; sourceTree = "<group>"; };
 		798164BE22DDE5E800C9110A /* fatR7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR7.png; sourceTree = "<group>"; };
 		798164BF22DDE5E800C9110A /* fatR8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR8.png; sourceTree = "<group>"; };
@@ -229,6 +229,8 @@
 		798164C622DDE5EC00C9110A /* fatR1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR1.png; sourceTree = "<group>"; };
 		798164C722DDE5ED00C9110A /* fatR4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR4.png; sourceTree = "<group>"; };
 		798164C822DDE5ED00C9110A /* fatR12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatR12.png; sourceTree = "<group>"; };
+		799BCE8722EF2AF7003AC566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = JumpTheJunkTV/Assets.xcassets; sourceTree = "<group>"; };
+		799BCE8E22EF3FD7003AC566 /* howTo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = howTo.swift; sourceTree = "<group>"; };
 		79A970E922E9AE3700DA9ABC /* CMPedometerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMPedometerData.swift; sourceTree = "<group>"; };
 		79A970EB22E9B0BF00DA9ABC /* CMAltidudineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CMAltidudineData.swift; sourceTree = "<group>"; };
 		79C1EA7522CA1DC60041EDCC /* ActionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionNode.swift; sourceTree = "<group>"; };
@@ -258,7 +260,7 @@
 			children = (
 				7910FD0822C60E3F008061C6 /* JumpTheJunkTV */,
 				7910FD0722C60E3F008061C6 /* Products */,
-				798164BA22DC916800C9110A /* Assets.xcassets */,
+				799BCE8722EF2AF7003AC566 /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -310,6 +312,7 @@
 		7910FD2922C60E97008061C6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				799BCE8B22EF3F81003AC566 /* howTo */,
 				790085A322D5D8A100F66AC1 /* barraRossa */,
 				79C1EA7422CA1D8E0041EDCC /* ActionNode */,
 				79C1EA7222C9FBCA0041EDCC /* ButtonNode */,
@@ -539,6 +542,14 @@
 			path = "FatRunBrufoli Images";
 			sourceTree = "<group>";
 		};
+		799BCE8B22EF3F81003AC566 /* howTo */ = {
+			isa = PBXGroup;
+			children = (
+				799BCE8E22EF3FD7003AC566 /* howTo.swift */,
+			);
+			path = howTo;
+			sourceTree = "<group>";
+		};
 		79C1EA7222C9FBCA0041EDCC /* ButtonNode */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,10 +667,10 @@
 				792C1FFE22DF097E00F1354C /* fatJ5.png in Resources */,
 				792C205122E1D62E00F1354C /* fridge9.png in Resources */,
 				792C204222E1C02300F1354C /* star2.png in Resources */,
-				798164BB22DC916900C9110A /* Assets.xcassets in Resources */,
 				798164C922DDE5EE00C9110A /* fatR6.png in Resources */,
 				7910FD1522C60E3F008061C6 /* Main.storyboard in Resources */,
 				7956693322CE0AC300CE53C1 /* fitRB9.png in Resources */,
+				799BCE8822EF2AF7003AC566 /* Assets.xcassets in Resources */,
 				792C200822E06DF900F1354C /* musicaStoria.mp3 in Resources */,
 				798164D022DDE5EE00C9110A /* fatR10.png in Resources */,
 				7910FDAC22C60F48008061C6 /* fitR10.png in Resources */,
@@ -732,6 +743,7 @@
 				79A970EC22E9B0BF00DA9ABC /* CMAltidudineData.swift in Sources */,
 				7910FD3D22C60E97008061C6 /* FitRun.swift in Sources */,
 				7910FDB622C62139008061C6 /* ButtonNode.swift in Sources */,
+				799BCE8F22EF3FD7003AC566 /* howTo.swift in Sources */,
 				792C200F22E1B2CC00F1354C /* Star.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -868,7 +880,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HH62WUDHN;
 				INFOPLIST_FILE = JumpTheJunkTV/Info.plist;
@@ -876,7 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunkTV;
+				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -887,7 +898,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4HH62WUDHN;
 				INFOPLIST_FILE = JumpTheJunkTV/Info.plist;
@@ -895,7 +905,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunkTV;
+				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;

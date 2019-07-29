@@ -21,7 +21,7 @@ class ButtonNode: SKSpriteNode {
     
     func setFocusedImage(named name: String) {
         focusedImage = SKTexture(imageNamed: name)
-        unfocusedImage = SKTexture(imageNamed: name)
+        unfocusedImage = self.texture
         isUserInteractionEnabled = true
     }
     

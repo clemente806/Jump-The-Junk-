@@ -32,6 +32,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var tree1: TreeClass?
     private var tree2: TreeClass?
     private var tree3: TreeClass?
+    private var tree4: TreeClass?
+    private var tree5: TreeClass?
     
     private var fitRun: FitRun?
     private var FliyngHotDog1: fliynghotdog?
@@ -57,6 +59,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
 
     private var cloud1: cloud?
     private var cloud2: cloud?
+    private var cloud3: cloud?
+    private var cloud4: cloud?
     
     private var freccia: Freccia?
     
@@ -91,7 +95,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     var firstBody = SKPhysicsBody()
     var secondBody = SKPhysicsBody()
     
-    var controller: GCController?
+    var controller = GCController.controllers().first
     
     override func didMove (to view: SKView) {
         initializeGame()
@@ -125,6 +129,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         manageBGsAndGrounds()
         cloud1?.moveCloudlLento()
         cloud2?.moveCloudVeloce()
+        cloud3?.moveCloudVeloce()
+        cloud4?.moveCloudlLento()
         
         
         fitRun?.move(status: status, camera: mainCamera!.position.x);
@@ -157,29 +163,34 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        playSoundJump()
-        var fitJumpAnimation = [SKTexture]();
-        var animateFitJumpAction = SKAction();
-        if ableToJump == true {
+        controller?.motion?.valueChangedHandler = {(motion: GCMotion)->() in
+            let y = motion.userAcceleration.y
             
-            name = "FitJump";
-            if status <= 25.0{
-                fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 600))
-                for i in 1...6 {
-                    let name = "fitJ\(i)";
-                    fitJumpAnimation.append(SKTexture(imageNamed: name));
+            var fitJumpAnimation = [SKTexture]();
+            var animateFitJumpAction = SKAction();
+            
+            if self.ableToJump == true && y > 1.0 {
+                self.playSoundJump()
+                self.ableToJump = false
+                self.name = "FitJump";
+                if self.status <= 25.0{
+                    self.fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 700))
+                    for i in 1...6 {
+                        let name = "fitJ\(i)";
+                        fitJumpAnimation.append(SKTexture(imageNamed: name));
+                    }
                 }
-            }
-            else {
-                fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 550))
-                for i in 1...6 {
-                    let name1 = "fatJ\(i)";
-                    fitJumpAnimation.append(SKTexture(imageNamed: name1));
+                else {
+                    self.fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 500))
+                    for i in 1...6 {
+                        let name1 = "fatJ\(i)";
+                        fitJumpAnimation.append(SKTexture(imageNamed: name1));
+                    }
                 }
+                animateFitJumpAction = SKAction.animate(with: fitJumpAnimation, timePerFrame: 0.20
+                    , resize: true, restore: false);
+                self.fitRun?.run(SKAction.repeat(animateFitJumpAction, count: 1));
             }
-            animateFitJumpAction = SKAction.animate(with: fitJumpAnimation, timePerFrame: 0.20
-                , resize: true, restore: false);
-            fitRun?.run(SKAction.repeat(animateFitJumpAction, count: 1));
         }
     }
     
@@ -395,6 +406,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         tree1 = childNode(withName: "Tree1") as? TreeClass;
         tree2 = childNode(withName: "Tree2") as? TreeClass;
         tree3 = childNode(withName: "Tree3") as? TreeClass;
+        tree4 = childNode(withName: "Tree4") as? TreeClass;
+        tree5 = childNode(withName: "Tree5") as? TreeClass;
         
         ground1 = childNode(withName: "Ground1") as? GroundClass;
         ground2 = childNode(withName: "Ground2") as? GroundClass;
@@ -447,6 +460,9 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         
         cloud1 = childNode(withName: "cloud1") as? cloud;
         cloud2 = childNode(withName: "cloud2") as? cloud;
+        cloud3 = childNode(withName: "cloud3") as? cloud;
+        cloud4 = childNode(withName: "cloud4") as? cloud;
+        
         FliyngHotDog1 = childNode(withName: "fliynghotdog") as? fliynghotdog;
         FliyngHotDog1?.initializeHotDog(camera: mainCamera!)
 
@@ -519,33 +535,35 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     }
     
     private func manageCamera(){
-        self.mainCamera?.position.x += 13;
+        self.mainCamera?.position.x += 8;
     }
     
     private func manageSecondCamera(){
-        self.secondCamera?.position.x += 13;
+        self.secondCamera?.position.x += 8;
     }
     
     private func manageBGsAndGrounds() {
-        bg1?.moveBG(camera: mainCamera!);
-        bg2?.moveBG(camera: mainCamera!);
-        bg3?.moveBG(camera: mainCamera!);
+        bg1?.moveBG(camera: mainCamera!)
+        bg2?.moveBG(camera: mainCamera!)
+        bg3?.moveBG(camera: mainCamera!)
         
-        ground1?.moveGrounds(camera: mainCamera!);
-        ground2?.moveGrounds(camera: mainCamera!);
-        ground3?.moveGrounds(camera: mainCamera!);
+        ground1?.moveGrounds(camera: mainCamera!)
+        ground2?.moveGrounds(camera: mainCamera!)
+        ground3?.moveGrounds(camera: mainCamera!)
         
-        tree1?.moveTree(camera: secondCamera!);
-        tree2?.moveTree(camera: secondCamera!);
-        tree3?.moveTree(camera: secondCamera!);
+        tree1?.moveTree(camera: secondCamera!)
+        tree2?.moveTree(camera: secondCamera!)
+        tree3?.moveTree(camera: secondCamera!)
+        tree4?.moveTree(camera: secondCamera!)
+        tree5?.moveTree(camera: secondCamera!)
     }
     
     @objc private func spawnItems() {
-        self.scene?.addChild(itemController.spawnItems(camera: mainCamera!));
+        self.scene?.addChild(itemController.spawnItems(camera: mainCamera!))
     }
     
     @objc private func FridgeLancioOggetti() {
-        self.scene?.addChild(itemController.FridgeLancioOggetti(camera: mainCamera!));
+        self.scene?.addChild(itemController.FridgeLancioOggetti(camera: mainCamera!))
         
         lancio = itemController.FridgeLancioOggetti(camera: mainCamera!)
         self.scene?.addChild(lancio!)
@@ -555,19 +573,8 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         lancio?.position.y = secondCamera!.position.y
         lancio?.zPosition = 4
         lancio?.physicsBody?.affectedByGravity = true
-        lancio?.physicsBody?.applyImpulse(CGVector(dx: 135,dy: 120))
+        lancio?.physicsBody?.applyImpulse(CGVector(dx: 155,dy: 160))
         
-
-        
-//        if (!rotLancio || firstBody.node?.name == "ciboFrigo1" || firstBody.node?.name == "ciboFrigo2" || firstBody.node?.name == "ciboFrigo3" || firstBody.node?.name == "ciboFrigo4" && secondBody.node?.name == "barra1"){
-//            lancio!.zRotation = 0
-//        }
-//        else{
-//            lancio!.zRotation += .pi / 4.0;
-//        }
-//        if(lancio!.position.y <= -40){
-//            rotLancio = false
-//        }
     }
     
     @objc private func removeItems(){

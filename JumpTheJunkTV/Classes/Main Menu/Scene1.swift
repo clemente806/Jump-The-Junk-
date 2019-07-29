@@ -22,32 +22,32 @@ class Scene1: SKScene{
         GameViewController.playSound()
         let background = SKSpriteNode(imageNamed: "Scene1")
         background.zPosition = -1
-        background.position = CGPoint(x: 640, y:360)
+        background.position = CGPoint(x: 960, y:540)
         background.blendMode = .replace
         addChild(background)
         
         livel1.label = "1"
         livel1.setFocusedImage(named: "1")
-        livel1.position = CGPoint(x: 500, y: 520)
-        livel1.size = CGSize(width: 165, height: 165)
+        livel1.position = CGPoint(x: 800, y: 700)
+        livel1.size = CGSize(width: 200, height: 200)
         addChild(livel1)
         
         livel2.label = "2"
         livel2.setFocusedImage(named: "2")
-        livel2.position = CGPoint(x: 800, y: 520)
-        livel2.size = CGSize(width: 165, height: 165)
+        livel2.position = CGPoint(x: 1125, y: 700)
+        livel2.size = CGSize(width: 200, height: 200)
         addChild(livel2)
         
         livel3.label = "3"
         livel3.setFocusedImage(named: "3")
-        livel3.position = CGPoint(x: 500, y: 300)
-        livel3.size = CGSize(width: 165, height: 165)
+        livel3.position = CGPoint(x: 800, y: 400)
+        livel3.size = CGSize(width: 200, height: 200)
         addChild(livel3)
         
         livel4.label = "4"
         livel4.setFocusedImage(named: "4")
-        livel4.position = CGPoint(x: 800, y: 300)
-        livel4.size = CGSize(width: 165, height: 165)
+        livel4.position = CGPoint(x: 1125, y: 400)
+        livel4.size = CGSize(width: 200, height: 200)
         addChild(livel4)
     }
     

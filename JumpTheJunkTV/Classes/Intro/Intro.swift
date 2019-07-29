@@ -13,21 +13,29 @@ import GameplayKit
 class Intro: SKScene {
     
     let startNewGame = ButtonNode(imageNamed: "startNewGameLo")
+    let howToPlay = ButtonNode(imageNamed: "howToPlayLo")
+
     
     override func didMove(to view: SKView) {
         
-//        let background = SKSpriteNode(imageNamed: "intro")
-//        background.zPosition = -1
-//        background.position = CGPoint(x: 0, y: 50)
-//
-//        background.blendMode = .replace
-//        addChild(background)
+        let background = SKSpriteNode(imageNamed: "intro")
+        background.zPosition = -1
+        background.position = CGPoint(x: 0, y: 0)
+        
+        background.blendMode = .replace
+        addChild(background)
         
         startNewGame.setFocusedImage(named: "startNewGameHi")
-        startNewGame.position = CGPoint(x: 0, y: -300)
+        startNewGame.position = CGPoint(x: 0, y: -160)
         startNewGame.size = CGSize(width: 350, height: 120)
         startNewGame.zPosition = 1
         addChild(startNewGame)
+        
+        howToPlay.setFocusedImage(named: "howToPlayHi")
+        howToPlay.position = CGPoint(x: 0, y: -300)
+        howToPlay.size = CGSize(width: 350, height: 120)
+        howToPlay.zPosition = 1
+        addChild(howToPlay)
         
         
     }
@@ -55,6 +63,13 @@ class Intro: SKScene {
                 let game = Scene1(size: size)
                 GameViewController.playSoundButtonPress()
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
+                view?.presentScene(game, transition: transition)
+            }
+            else if selected === howToPlay {
+                
+                let game = howTo(size: size)
+                GameViewController.playSoundButtonPress()
+                let transition = SKTransition.reveal(with: .down, duration: 1)
                 view?.presentScene(game, transition: transition)
             }
         }
