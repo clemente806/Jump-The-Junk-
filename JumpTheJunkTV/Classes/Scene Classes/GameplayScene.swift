@@ -135,7 +135,11 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     private var bmiNum: SKLabelNode?
     private var ScoreNum: SKLabelNode?
-    private var score = 0
+    var score : Int = 0 {
+        didSet {
+            GameViewController.score = score
+        }
+    }
     public var status = 18.0;
     
     var ableToJump = true
@@ -202,6 +206,14 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         }
     }
     
+    func endGamef(){
+        playSoundGameover()
+        if let scene = endGame(fileNamed: "endGame") {
+            scene.scaleMode = .aspectFill
+            view!.presentScene(scene, transition: SKTransition.fade(withDuration: TimeInterval(1)));
+            }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         controller?.motion?.valueChangedHandler = {(motion: GCMotion)->() in
             let y = motion.userAcceleration.y
@@ -251,7 +263,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         }
         
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "sveglia1"{
-            gameover()
+            endGamef()
         }
 
         // Good food
@@ -875,7 +887,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     }
 }
 
-
 func s(item : SKSpriteNode) {
     
     let index = Int.random(in: 0..<10)
@@ -938,5 +949,7 @@ func s(item : SKSpriteNode) {
     
     item.zPosition = 4
     item.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-
+    
+    
 }
+

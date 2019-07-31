@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     
     static var player: AVAudioPlayer?
     static var player2: AVAudioPlayer?
+    static var score = 0
 
     var gameScene : SKScene? {
         return (self.view as! SKView).scene
@@ -24,12 +25,13 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = Intro(fileNamed: "Intro") {
+            
+            if let scene = storia(fileNamed: "storia") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 
                 // Present the scene
-                view.presentScene(scene)
+                view.presentScene(scene, transition: SKTransition.fade(withDuration: TimeInterval(1)));
             }
             view.ignoresSiblingOrder = true
             view.showsFPS = true
