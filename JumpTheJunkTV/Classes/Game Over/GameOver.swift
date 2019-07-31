@@ -25,6 +25,7 @@ class GameOver: SKScene {
     override func didMove(to view: SKView) {
         GameViewController.playSoundGameOver()
         background.zPosition = -1
+        background.size = CGSize(width: 1280, height: 720)
         background.position = CGPoint(x: 0, y:0)
         background.blendMode = .replace
         addChild(background)
@@ -67,35 +68,11 @@ class GameOver: SKScene {
             else if selected === mm {
                 GameViewController.player!.stop()
                 GameViewController.playSoundButtonPress()
-                let game = Scene1(size: size)
+                let game = Scene1(fileNamed: "Scene1")
+                game!.scaleMode = .aspectFill
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
-                view?.presentScene(game.scene!, transition: transition)
+                view?.presentScene(game!.scene!, transition: transition)
             }
         }
     }
-    
-    //    func pressesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //
-    //        for touch in touches{
-    //            let location = touch.location(in: self);
-    //            if atPoint(location).position == CGPoint(x:480, y:160) {
-    //                if let scene = GameplayScene(fileNamed: "GameplayScene") {
-    //                    // Set the scale mode to scale to fit the window
-    //                    scene.scaleMode = .aspectFill
-    //
-    //                    // Present the scene
-    //                    view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)));
-    //                }
-    //            }
-    //            if atPoint(location).position == CGPoint(x:480, y:-160) {
-    //                if let scene = Scene1(fileNamed: "Scene1") {
-    //                    // Set the scale mode to scale to fit the window
-    //                    scene.scaleMode = .aspectFill
-    //
-    //                    // Present the scene
-    //                    view!.presentScene(scene, transition: SKTransition.doorsOpenVertical(withDuration: TimeInterval(1)));
-    //                }
-    //            }
-    //        }
-    //    }
 }

@@ -28,12 +28,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var ground1: GroundClass?
     private var ground2: GroundClass?
     private var ground3: GroundClass?
-    
-    private var tree1: TreeClass?
-    private var tree2: TreeClass?
-    private var tree3: TreeClass?
-    private var tree4: TreeClass?
-    private var tree5: TreeClass?
+    private var ground4: GroundClass?
     
     private var fitRun: FitRun?
     private var FliyngHotDog1: fliynghotdog?
@@ -56,6 +51,14 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var barra14: barraRossa?
     private var barra15: barraRossa?
     private var barra16: barraRossa?
+    private var barra17: barraRossa?
+    private var barra18: barraRossa?
+    private var barra19: barraRossa?
+    private var barra20: barraRossa?
+    private var barra21: barraRossa?
+    private var barra22: barraRossa?
+    private var barra23: barraRossa?
+    private var barra24: barraRossa?
 
     private var cloud1: cloud?
     private var cloud2: cloud?
@@ -63,6 +66,12 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var cloud4: cloud?
     
     private var freccia: Freccia?
+    
+    private var buca1: blackHole?
+    private var buca2: blackHole?
+    private var buca3: blackHole?
+    private var buca4: blackHole?
+    private var buca5: blackHole?
     
     private var star1: Star?
     private var star2: Star?
@@ -75,6 +84,49 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var star9: Star?
     private var star10: Star?
     private var star11: Star?
+    
+    public var cibo1 : SKSpriteNode?
+    public var cibo2 : SKSpriteNode?
+    public var cibo3 : SKSpriteNode?
+    public var cibo4 : SKSpriteNode?
+    public var cibo5 : SKSpriteNode?
+    public var cibo6 : SKSpriteNode?
+    public var cibo7 : SKSpriteNode?
+    public var cibo8 : SKSpriteNode?
+    public var cibo9 : SKSpriteNode?
+    public var cibo10 : SKSpriteNode?
+    public var cibo11 : SKSpriteNode?
+    public var cibo12 : SKSpriteNode?
+    public var cibo13 : SKSpriteNode?
+    public var cibo14 : SKSpriteNode?
+    public var cibo15 : SKSpriteNode?
+    public var cibo16 : SKSpriteNode?
+    public var cibo17 : SKSpriteNode?
+    public var cibo18 : SKSpriteNode?
+    public var cibo19 : SKSpriteNode?
+    public var cibo20 : SKSpriteNode?
+    public var cibo21 : SKSpriteNode?
+    public var cibo22 : SKSpriteNode?
+    public var cibo23 : SKSpriteNode?
+    public var cibo24 : SKSpriteNode?
+    public var cibo25 : SKSpriteNode?
+    public var cibo26 : SKSpriteNode?
+    public var cibo27 : SKSpriteNode?
+    public var cibo28 : SKSpriteNode?
+    public var cibo29 : SKSpriteNode?
+    public var cibo30 : SKSpriteNode?
+    public var cibo31 : SKSpriteNode?
+    public var cibo32 : SKSpriteNode?
+    public var cibo33 : SKSpriteNode?
+    public var cibo34 : SKSpriteNode?
+    public var cibo35 : SKSpriteNode?
+    public var cibo36 : SKSpriteNode?
+    public var cibo37 : SKSpriteNode?
+    public var cibo38 : SKSpriteNode?
+    public var cibo39 : SKSpriteNode?
+    public var cibo40 : SKSpriteNode?
+    
+    private var sveglia: sveglia?
     
     private var mainCamera: SKCameraNode?;
     private var secondCamera: SKCameraNode?
@@ -90,7 +142,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     var gameOver = true
     
     var lancio : SKSpriteNode?
-    var rotLancio = true
+//    var rotLancio = true
     
     var firstBody = SKPhysicsBody()
     var secondBody = SKPhysicsBody()
@@ -99,8 +151,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     override func didMove (to view: SKView) {
         initializeGame()
-        NotificationCenter.default.addObserver(self, selector: #selector(controllerDidConnect(note:)), name: NSNotification.Name.GCControllerDidConnect, object: nil)
-        
     }
     
     override func update(_ currentTime: TimeInterval){
@@ -111,7 +161,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         else {
             ableToJump = false
         }
-        if status > 18.0 && status <= 25.0 {
+        if status >= 18.0 && status <= 25.0 {
             score += 1
         }
         ScoreNum?.text = String(score);
@@ -132,22 +182,12 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         cloud3?.moveCloudVeloce()
         cloud4?.moveCloudlLento()
         
-        
+//        Controllo caduta del personaggio
+        if ((fitRun?.position.y)! < self.mainCamera!.position.y-2000){
+            gameOver = false
+        }
+                
         fitRun?.move(status: status, camera: mainCamera!.position.x);
-        
-        if(!rotLancio){
-            lancio?.zRotation = 0
-        }
-        else{
-            lancio?.zRotation += .pi / 4.0;
-        }
-//                if (!rotLancio || firstBody.node?.name == "ciboFrigo1" || firstBody.node?.name == "ciboFrigo2" || firstBody.node?.name == "ciboFrigo3" || firstBody.node?.name == "ciboFrigo4" && secondBody.node?.name == "barra1"){
-//                    lancio?.zRotation = 0
-//                }
-//                else{
-//                    lancio?.zRotation += .pi / 4.0;
-//                }
-               
     }
     
     func  gameover(){
@@ -197,11 +237,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody = SKPhysicsBody();
         var secondBody = SKPhysicsBody();
-//        let thirdBody = lancio?.physicsBody?.allContactedBodies()
-//
-//        let cont = thirdBody!.contains(barra1!.physicsBody!)
-        
-        
+
         if contact.bodyA.node?.name == "FitRun"{
             firstBody = contact.bodyA;
             secondBody = contact.bodyB;
@@ -213,11 +249,12 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "barra1" || secondBody.node?.name == "barra2"  {
             firstBody.node?.physicsBody?.collisionBitMask = (secondBody.node?.physicsBody!.collisionBitMask)!
         }
-        if (rotLancio){
-            rotLancio = false
+        
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "sveglia1"{
+            gameover()
         }
+
         // Good food
-    
         if firstBody.node?.name == "FitRun" && secondBody.node?.name == "apple" {
             playSoundGood()
             if status >= 18.6 {
@@ -269,6 +306,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             }
             freccia?.moveTo(status: status)
             fitRun?.initializeFitRun(status: status)
+         
             bmiNum?.text = String(status);
             secondBody.node?.removeFromParent();
         }
@@ -388,9 +426,21 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             fitRun?.initializeFitRun(status: status)
         }
         
-        
+        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "blackHole" || secondBody.node?.name == "blackHole2" || secondBody.node?.name == "blackHole3" || secondBody.node?.name == "blackHole4" || secondBody.node?.name == "blackHole5"{
+            playCaduta()
+            fitRun?.physicsBody?.collisionBitMask = 0
+            fitRun?.position.x += 2
+            if (status <= 25)
+            {
+                fitRun?.cadutaFit()
+            }
+            else{
+                fitRun?.cadutaFat()
+            }
+        }
     }
     
+    //MARK: - Inizializzo
     private func initializeGame(){
         
         physicsWorld.contactDelegate = self;
@@ -403,15 +453,17 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         bg2 = childNode(withName: "BG2") as? BGClass;
         bg3 = childNode(withName: "BG3") as? BGClass;
         
-        tree1 = childNode(withName: "Tree1") as? TreeClass;
-        tree2 = childNode(withName: "Tree2") as? TreeClass;
-        tree3 = childNode(withName: "Tree3") as? TreeClass;
-        tree4 = childNode(withName: "Tree4") as? TreeClass;
-        tree5 = childNode(withName: "Tree5") as? TreeClass;
-        
         ground1 = childNode(withName: "Ground1") as? GroundClass;
         ground2 = childNode(withName: "Ground2") as? GroundClass;
         ground3 = childNode(withName: "Ground3") as? GroundClass;
+        ground4 = childNode(withName: "Ground4") as? GroundClass;
+        
+        buca1 = childNode(withName: "blackHole") as? blackHole;
+        buca2 = childNode(withName: "blackHole2") as? blackHole;
+        buca3 = childNode(withName: "blackHole3") as? blackHole;
+        buca4 = childNode(withName: "blackHole4") as? blackHole;
+        buca5 = childNode(withName: "blackHole5") as? blackHole;
+
         
         barra1 = childNode(withName: "barraRossa") as? barraRossa;
         barra1?.initializeBarra()
@@ -458,6 +510,30 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         barra16 = childNode(withName: "barraRossa16") as? barraRossa;
         barra16?.initializeBarra()
         
+        barra17 = childNode(withName: "barraRossa17") as? barraRossa;
+        barra17?.initializeBarra()
+        
+        barra18 = childNode(withName: "barraRossa18") as? barraRossa;
+        barra18?.initializeBarra()
+        
+        barra19 = childNode(withName: "barraRossa19") as? barraRossa;
+        barra19?.initializeBarra()
+        
+        barra20 = childNode(withName: "barraRossa20") as? barraRossa;
+        barra20?.initializeBarra()
+        
+        barra21 = childNode(withName: "barraRossa21") as? barraRossa;
+        barra21?.initializeBarra()
+        
+        barra22 = childNode(withName: "barraRossa22") as? barraRossa;
+        barra22?.initializeBarra()
+        
+        barra23 = childNode(withName: "barraRossa23") as? barraRossa;
+        barra23?.initializeBarra()
+        
+        barra24 = childNode(withName: "barraRossa24") as? barraRossa;
+        barra24?.initializeBarra()
+        
         cloud1 = childNode(withName: "cloud1") as? cloud;
         cloud2 = childNode(withName: "cloud2") as? cloud;
         cloud3 = childNode(withName: "cloud3") as? cloud;
@@ -477,6 +553,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         ground1?.initializeGroundAndFloor();
         ground2?.initializeGroundAndFloor();
         ground3?.initializeGroundAndFloor();
+        ground4?.initializeGroundAndFloor();
         
         star1 = mainCamera?.childNode(withName: "star1") as? Star
         star1?.initializeStar()
@@ -515,6 +592,88 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         
         freccia?.initializeFreccia()
         
+        
+        cibo1 = childNode(withName: "cibo1") as? SKSpriteNode
+        s(item: cibo1!)
+        cibo2 = childNode(withName: "cibo2") as? SKSpriteNode
+        s(item: cibo2!)
+        cibo3 = childNode(withName: "cibo3") as? SKSpriteNode
+        s(item: cibo3!)
+        cibo4 = childNode(withName: "cibo4") as? SKSpriteNode
+        s(item: cibo4!)
+        cibo5 = childNode(withName: "cibo5") as? SKSpriteNode
+        s(item: cibo5!)
+        cibo6 = childNode(withName: "cibo6") as? SKSpriteNode
+        s(item: cibo6!)
+        cibo7 = childNode(withName: "cibo7") as? SKSpriteNode
+        s(item: cibo7!)
+        cibo8 = childNode(withName: "cibo8") as? SKSpriteNode
+        s(item: cibo8!)
+        cibo9 = childNode(withName: "cibo9") as? SKSpriteNode
+        s(item: cibo9!)
+        cibo10 = childNode(withName: "cibo10") as? SKSpriteNode
+        s(item: cibo10!)
+        cibo11 = childNode(withName: "cibo11") as? SKSpriteNode
+        s(item: cibo11!)
+        cibo12 = childNode(withName: "cibo12") as? SKSpriteNode
+        s(item: cibo12!)
+        cibo13 = childNode(withName: "cibo13") as? SKSpriteNode
+        s(item: cibo13!)
+        cibo14 = childNode(withName: "cibo14") as? SKSpriteNode
+        s(item: cibo14!)
+        cibo15 = childNode(withName: "cibo15") as? SKSpriteNode
+        s(item: cibo15!)
+        cibo16 = childNode(withName: "cibo16") as? SKSpriteNode
+        s(item: cibo16!)
+        cibo17 = childNode(withName: "cibo17") as? SKSpriteNode
+        s(item: cibo17!)
+        cibo18 = childNode(withName: "cibo18") as? SKSpriteNode
+        s(item: cibo18!)
+        cibo19 = childNode(withName: "cibo19") as? SKSpriteNode
+        s(item: cibo19!)
+        cibo20 = childNode(withName: "cibo20") as? SKSpriteNode
+        s(item: cibo20!)
+        cibo21 = childNode(withName: "cibo21") as? SKSpriteNode
+        s(item: cibo21!)
+        cibo22 = childNode(withName: "cibo22") as? SKSpriteNode
+        s(item: cibo22!)
+        cibo23 = childNode(withName: "cibo23") as? SKSpriteNode
+        s(item: cibo23!)
+        cibo24 = childNode(withName: "cibo24") as? SKSpriteNode
+        s(item: cibo24!)
+        cibo25 = childNode(withName: "cibo25") as? SKSpriteNode
+        s(item: cibo25!)
+        cibo26 = childNode(withName: "cibo26") as? SKSpriteNode
+        s(item: cibo26!)
+        cibo27 = childNode(withName: "cibo27") as? SKSpriteNode
+        s(item: cibo27!)
+        cibo28 = childNode(withName: "cibo28") as? SKSpriteNode
+        s(item: cibo28!)
+        cibo29 = childNode(withName: "cibo29") as? SKSpriteNode
+        s(item: cibo29!)
+        cibo30 = childNode(withName: "cibo30") as? SKSpriteNode
+        s(item: cibo30!)
+        cibo31 = childNode(withName: "cibo31") as? SKSpriteNode
+        s(item: cibo31!)
+        cibo32 = childNode(withName: "cibo32") as? SKSpriteNode
+        s(item: cibo32!)
+        cibo33 = childNode(withName: "cibo33") as? SKSpriteNode
+        s(item: cibo33!)
+        cibo34 = childNode(withName: "cibo34") as? SKSpriteNode
+        s(item: cibo34!)
+        cibo35 = childNode(withName: "cibo35") as? SKSpriteNode
+        s(item: cibo35!)
+        cibo36 = childNode(withName: "cibo36") as? SKSpriteNode
+        s(item: cibo36!)
+        cibo37 = childNode(withName: "cibo37") as? SKSpriteNode
+        s(item: cibo37!)
+        cibo38 = childNode(withName: "cibo38") as? SKSpriteNode
+        s(item: cibo38!)
+        cibo39 = childNode(withName: "cibo39") as? SKSpriteNode
+        s(item: cibo39!)
+        cibo40 = childNode(withName: "cibo40") as? SKSpriteNode
+        s(item: cibo40!)
+
         fitRun = childNode(withName: "FitRun") as? FitRun;
         fitRun?.initializeFitRun(status: status);
         
@@ -525,11 +684,18 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             as? SKLabelNode;
         ScoreNum?.text = "0";
         
+        buca1?.initializeblackHole()
+        buca2?.initializeblackHole()
+        buca3?.initializeblackHole()
+        buca4?.initializeblackHole()
+        buca5?.initializeblackHole()
+        
+        sveglia = childNode(withName: "sveglia1") as? sveglia
+        sveglia?.initializeSveglia()
+        
         // vel creazione ogg
           Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomBetweenNumbers(firstNum: 5, secondNum: 8)), target: self, selector: #selector(GameplayScene.FridgeLancioOggetti), userInfo: nil, repeats: true);
-        
-        Timer.scheduledTimer(timeInterval: TimeInterval(itemController.randomBetweenNumbers(firstNum: 1.5, secondNum: 3)), target: self, selector: #selector(GameplayScene.spawnItems), userInfo: nil, repeats: true);
-        
+  
         Timer.scheduledTimer(timeInterval: TimeInterval(7), target: self, selector: #selector(GameplayScene.removeItems), userInfo: nil, repeats: true);
         
     }
@@ -550,16 +716,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         ground1?.moveGrounds(camera: mainCamera!)
         ground2?.moveGrounds(camera: mainCamera!)
         ground3?.moveGrounds(camera: mainCamera!)
-        
-        tree1?.moveTree(camera: secondCamera!)
-        tree2?.moveTree(camera: secondCamera!)
-        tree3?.moveTree(camera: secondCamera!)
-        tree4?.moveTree(camera: secondCamera!)
-        tree5?.moveTree(camera: secondCamera!)
-    }
-    
-    @objc private func spawnItems() {
-        self.scene?.addChild(itemController.spawnItems(camera: mainCamera!))
+
     }
     
     @objc private func FridgeLancioOggetti() {
@@ -602,8 +759,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try AVAudioSession.sharedInstance().setActive(true)
             
-            
-            
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             
@@ -641,14 +796,34 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         }
     }
     
+    func playCaduta() {
+        guard let url = Bundle.main.url(forResource: "caduta", withExtension: "wav") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            guard let player = player else { return }
+             player.volume = 5.0
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
     func playSoundJunk() {
         guard let url = Bundle.main.url(forResource: "junk", withExtension: "wav") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try AVAudioSession.sharedInstance().setActive(true)
-            
-            
             
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
@@ -672,8 +847,6 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try AVAudioSession.sharedInstance().setActive(true)
             
-            
-            
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             
@@ -686,7 +859,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             
         } catch let error {
             print(error.localizedDescription)
-        }
+        } 
     }
     
     @objc func controllerDidConnect(note: NSNotification)
@@ -700,4 +873,70 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         print(userAccelerationLabelXString, userAccelerationLabelYString, userAccelerationLabelZString)
         }
     }
+}
+
+
+func s(item : SKSpriteNode) {
+    
+    let index = Int.random(in: 0..<10)
+    print(index)
+    switch index {
+    case 0:
+        item.texture = SKTexture(imageNamed:"banana")
+        item.name = "banana"
+        item.setScale(0.8)
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
+    case 1:
+        item.texture = SKTexture(imageNamed:"apple")
+        item.name = "apple";
+        item.setScale(0.8);
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
+    case 2:
+        item.texture = SKTexture(imageNamed:"broccoli")
+        item.name = "broccoli"
+        item.setScale(0.8)
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
+    case 3:
+        item.texture = SKTexture(imageNamed:"carrot")
+        item.name = "carrot";
+        item.setScale(0.8);
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
+    case 4:
+        item.texture = SKTexture(imageNamed:"pear")
+        item.name = "pear"
+        item.setScale(0.8)
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
+    case 5:
+        item.texture = SKTexture(imageNamed:"hotdog")
+        item.name = "hotdog";
+        item.setScale(0.8);
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
+    case 6:
+        item.texture = SKTexture(imageNamed:"fries")
+        item.name = "fries";
+        item.setScale(0.8);
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size);
+    case 7:
+        item.texture = SKTexture(imageNamed:"lollipop")
+        item.name = "lollipop";
+        item.setScale(0.8);
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size);
+    case 8:
+        item.texture = SKTexture(imageNamed:"sandwich")
+        item.name = "sandwich";
+        item.setScale(0.8);
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size);
+    default:
+        item.texture = SKTexture(imageNamed:"donut")
+        item.name = "donut"
+        item.setScale(0.8)
+        item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
+    }
+
+    item.physicsBody?.affectedByGravity = true
+    item.physicsBody?.categoryBitMask = ColliderType.JUNK_AND_COLLECTABLES
+    
+    item.zPosition = 4
+    item.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
 }

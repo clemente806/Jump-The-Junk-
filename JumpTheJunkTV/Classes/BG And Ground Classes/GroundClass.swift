@@ -17,6 +17,7 @@ class GroundClass: SKSpriteNode {
         physicsBody?.affectedByGravity = false;
         physicsBody?.isDynamic = false;
         physicsBody?.categoryBitMask = ColliderType.GROUND;
+        
     }
     
     func moveGrounds(camera: SKCameraNode){

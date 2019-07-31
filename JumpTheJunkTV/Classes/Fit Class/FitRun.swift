@@ -13,16 +13,18 @@ struct ColliderType {
     static let GROUND: UInt32 = 1
     static let JUNK_AND_COLLECTABLES: UInt32 = 2
     static let BARRAROSSA: UInt32 = 3
-
+    static let SVEGLIA: UInt32 = 1
 }
+
 
 class FitRun: SKSpriteNode {
     
     // RUN
     private var fitRunAnimation = [SKTexture]();
     private var animateFitRunAction = SKAction();
-    
-    
+    private var aaa = SKAction();
+    private var aa = [SKTexture]();
+
     func initializeFitRun(status : Double) {
         fitRunAnimation.removeAll()
         name = "FitRun";
@@ -56,10 +58,7 @@ class FitRun: SKSpriteNode {
         physicsBody?.contactTestBitMask = ColliderType.JUNK_AND_COLLECTABLES
         physicsBody?.categoryBitMask = ColliderType.BARRAROSSA
         
-
-        
     }
-    
     
     func move(status: Double, camera: CGFloat) {
         if status > 25 {
@@ -75,16 +74,22 @@ class FitRun: SKSpriteNode {
                 self.position.x += 8
             }
     }
+    
+//    Caduta fit
+    func cadutaFit() {
+        aa.append(SKTexture(imageNamed: "fitJ4"));
 
+        aaa = SKAction.animate(with: aa, timePerFrame: 3, resize: true, restore: false);
+        
+        self.run(SKAction.repeatForever(aaa))
+    }
+    
+//    Caduta fat
+    func cadutaFat() {
+        aa.append(SKTexture(imageNamed: "fatJ4"));
+        
+        aaa = SKAction.animate(with: aa, timePerFrame: 3, resize: true, restore: false);
+        
+        self.run(SKAction.repeatForever(aaa))
+    }
 } // Class
-
-
-
-
-
-
-
-
-
-
-

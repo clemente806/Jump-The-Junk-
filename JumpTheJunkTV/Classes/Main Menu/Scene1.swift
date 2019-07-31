@@ -75,29 +75,34 @@ class Scene1: SKScene{
                 GameViewController.playSoundButtonPress()
                 GameViewController.playSoundLevel1()
                 let game = GameplayScene(fileNamed: "GameplayScene")
+                game!.scaleMode = .aspectFill
+
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene((game?.scene!)!, transition: transition)
             }
             else if selected === livel2 {
                 GameViewController.playSoundButtonPress()
                 GameViewController.playSoundLevel1()
-                let game = Scene1(size: size)
+                let game = Scene1(fileNamed: "Scene1")
+                game!.scaleMode = .aspectFill
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
-                view?.presentScene(game, transition: transition)
+                view?.presentScene(game!, transition: transition)
             }
             else if selected === livel3 {
                 GameViewController.playSoundButtonPress()
                 GameViewController.playSoundLevel1()
-                let game = Scene1(size: size)
+                let game = Scene1(fileNamed: "Scene1")
+                game!.scaleMode = .aspectFill
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
-                view?.presentScene(game, transition: transition)
+                view?.presentScene(game!, transition: transition)
             }
             else if selected === livel4 {
                 GameViewController.playSoundButtonPress()
                 GameViewController.playSoundLevel1()
-                let game = Scene1(size: size)
+                let game = Scene1(fileNamed: "Scene1")
+                game!.scaleMode = .aspectFill
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
-                view?.presentScene(game, transition: transition)
+                view?.presentScene(game!, transition: transition)
             }
         }
     }

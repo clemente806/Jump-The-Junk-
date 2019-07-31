@@ -9,7 +9,6 @@
 import Foundation
 import SpriteKit
 
-
 class Star: SKSpriteNode {
     
     private var StarAnimation = [SKTexture]();

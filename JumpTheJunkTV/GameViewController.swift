@@ -31,15 +31,9 @@ class GameViewController: UIViewController {
                 // Present the scene
                 view.presentScene(scene)
             }
-            
             view.ignoresSiblingOrder = true
-            
-//            view.showsPhysics = false;
-            
             view.showsFPS = true
             view.showsNodeCount = true
-            
-            
         }
     }
     
@@ -53,8 +47,6 @@ class GameViewController: UIViewController {
             }
         }
 
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
@@ -68,9 +60,7 @@ class GameViewController: UIViewController {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try AVAudioSession.sharedInstance().setActive(true)
-            
-            
-            
+        
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             GameViewController.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             
@@ -91,8 +81,6 @@ class GameViewController: UIViewController {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try AVAudioSession.sharedInstance().setActive(true)
-            
-            
             
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             GameViewController.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
@@ -123,10 +111,7 @@ class GameViewController: UIViewController {
              player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
             GameViewController.player2!.volume = 1.0
             GameViewController.player2!.play()
-           
-
-            
-            
+        
         } catch let error {
             print(error.localizedDescription)
         }
@@ -139,9 +124,7 @@ class GameViewController: UIViewController {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
             try AVAudioSession.sharedInstance().setActive(true)
-            
-            
-            
+
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             GameViewController.player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             
