@@ -11,10 +11,13 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
 
+
 class GameViewController: UIViewController {
     
     static var player: AVAudioPlayer?
     static var player2: AVAudioPlayer?
+    static var player3: AVAudioPlayer?
+
     static var score = 0
 
     var gameScene : SKScene? {
@@ -22,6 +25,7 @@ class GameViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        GameViewController.playSoundStoria()
         super.viewDidLoad()
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -56,6 +60,7 @@ class GameViewController: UIViewController {
     
     
     static func playSound() {
+        GameViewController.player3?.stop()
         GameViewController.player?.stop()
         guard let url = Bundle.main.url(forResource: "music", withExtension: "mp3") else { return }
         
@@ -77,6 +82,7 @@ class GameViewController: UIViewController {
     }
     
    static func playSoundLevel1() {
+    
         GameViewController.player?.stop()
         guard let url = Bundle.main.url(forResource: "musicaStoria", withExtension: "mp3") else { return }
         
@@ -147,6 +153,30 @@ class GameViewController: UIViewController {
     
     static func resumeSound(){
         GameViewController.player!.play()
+    }
+    
+    static func playSoundStoria() {
+        
+        guard let url = Bundle.main.url(forResource: "songStoria", withExtension: "wav") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            GameViewController.player3 = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            GameViewController.player3!.volume = 1.0
+//            player3?.volume = 3.0
+            GameViewController.player3!.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
 
 }

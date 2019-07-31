@@ -17,6 +17,7 @@ class ActionNode: SKSpriteNode {
     var player = SKAction()
     var fitJumpAnimation = [SKTexture]()
     var levelsCompleted = 1
+    var levelsCompleted2 = 2
     var label : String!
     private var fitRun = FitRun()
     private var fitRunAnimation = [SKTexture]();
@@ -86,8 +87,12 @@ class ActionNode: SKSpriteNode {
         
     }
     
+    /*
+    Se il levelsCompleted o levelsCompleted2 sono uguali a int(self.label)
+    allora puoi mettere l'animazione del bambino che corre senza divieto
+    */
     func didGainFocus() {
-        if levelsCompleted == Int(self.label){
+        if levelsCompleted == Int(self.label) || levelsCompleted2 == Int(self.label){
             initializeButtonFitRun()
         }
         else {

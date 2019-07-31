@@ -135,6 +135,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     private var bmiNum: SKLabelNode?
     private var ScoreNum: SKLabelNode?
+    
     var score : Int = 0 {
         didSet {
             GameViewController.score = score
@@ -207,7 +208,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func endGamef(){
-        playSoundGameover()
+//        GameViewController.playSoundLevel1().stop()
         if let scene = endGame(fileNamed: "endGame") {
             scene.scaleMode = .aspectFill
             view!.presentScene(scene, transition: SKTransition.fade(withDuration: TimeInterval(1)));
@@ -822,7 +823,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
              player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
             
             guard let player = player else { return }
-             player.volume = 5.0
+            player.volume = 5.0
             player.play()
             
         } catch let error {

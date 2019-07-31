@@ -8,9 +8,12 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
+
 
 class endGame: SKScene {
     
+    var player: AVAudioPlayer?
     let restart = ActionNode(imageNamed: "restart")
     let mm = ActionNode(imageNamed: "mainmenu")
     let background = SKSpriteNode(imageNamed: "youdidit")
@@ -30,7 +33,6 @@ class endGame: SKScene {
         addChild(mm)
     }
     override func didMove(to view: SKView) {
-        GameViewController.playSoundGameOver()
         background.zPosition = -1
         background.size = CGSize(width: 1920, height: 1080)
         background.position = CGPoint(x: 0, y:0)
@@ -48,6 +50,9 @@ class endGame: SKScene {
         SN.fontName = "Monaco"
         SN.fontColor = UIColor(displayP3Red: 0, green: 200, blue: 255, alpha: 100)
         addChild(SN)
+        Scene1.blockLivel2 = false
+        GameViewController.player!.stop()
+        playSoundWinner()
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -75,20 +80,42 @@ class endGame: SKScene {
         
         if press.type == .select {
             if selected === restart{
-                GameViewController.player!.stop()
+//                GameViewController.player!.stop()
                 GameViewController.playSoundButtonPress()
                 let game = GameplayScene(fileNamed: "GameplayScene")
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game!.scene!, transition: transition)
             }
             else if selected === mm {
-                GameViewController.player!.stop()
+//                GameViewController.player!.stop()
                 GameViewController.playSoundButtonPress()
                 let game = Scene1(fileNamed: "Scene1")
                 game!.scaleMode = .aspectFill
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game!.scene!, transition: transition)
             }
+        }
+    }
+    func playSoundWinner() {
+        guard let url = Bundle.main.url(forResource: "winner", withExtension: "wav") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            guard let player = player else { return }
+            
+            player.volume = 3.0
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 }

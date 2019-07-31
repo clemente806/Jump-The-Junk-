@@ -51,6 +51,9 @@
 		7913326522F193AE00C4BC25 /* storia.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7913326422F193AE00C4BC25 /* storia.sks */; };
 		7913326822F1A53B00C4BC25 /* endGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913326722F1A53B00C4BC25 /* endGame.swift */; };
 		7913326C22F1A70300C4BC25 /* endGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7913326B22F1A70300C4BC25 /* endGame.sks */; };
+		7913326E22F1CD1500C4BC25 /* error.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7913326D22F1CD1500C4BC25 /* error.wav */; };
+		7913327022F1D16D00C4BC25 /* winner.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7913326F22F1D16D00C4BC25 /* winner.wav */; };
+		7913327222F1DB6D00C4BC25 /* songStoria.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7913327122F1DB6D00C4BC25 /* songStoria.wav */; };
 		79191E2A22D61FB2001DFED3 /* cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79191E2922D61FB2001DFED3 /* cloud.swift */; };
 		792C1FF922DF097E00F1354C /* fatJ1.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF322DF097E00F1354C /* fatJ1.png */; };
 		792C1FFA22DF097E00F1354C /* fatJ6.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF422DF097E00F1354C /* fatJ6.png */; };
@@ -172,6 +175,9 @@
 		7913326422F193AE00C4BC25 /* storia.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = storia.sks; sourceTree = "<group>"; };
 		7913326722F1A53B00C4BC25 /* endGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endGame.swift; sourceTree = "<group>"; };
 		7913326B22F1A70300C4BC25 /* endGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = endGame.sks; sourceTree = "<group>"; };
+		7913326D22F1CD1500C4BC25 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
+		7913326F22F1D16D00C4BC25 /* winner.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = winner.wav; sourceTree = "<group>"; };
+		7913327122F1DB6D00C4BC25 /* songStoria.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = songStoria.wav; sourceTree = "<group>"; };
 		79191E2922D61FB2001DFED3 /* cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cloud.swift; sourceTree = "<group>"; };
 		792C1FF322DF097E00F1354C /* fatJ1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ1.png; sourceTree = "<group>"; };
 		792C1FF422DF097E00F1354C /* fatJ6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ6.png; sourceTree = "<group>"; };
@@ -309,6 +315,9 @@
 		7910FD1E22C60E7C008061C6 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				7913327122F1DB6D00C4BC25 /* songStoria.wav */,
+				7913326F22F1D16D00C4BC25 /* winner.wav */,
+				7913326D22F1CD1500C4BC25 /* error.wav */,
 				79741E9022EFADB900C87EA6 /* caduta.wav */,
 				792C200722E06DF900F1354C /* musicaStoria.mp3 */,
 				792C200522E0630E00F1354C /* ButtonPress.wav */,
@@ -663,6 +672,7 @@
 				7910FDB022C60F48008061C6 /* fitR1.png in Resources */,
 				792C204322E1C02300F1354C /* star8.png in Resources */,
 				792C205522E1D65200F1354C /* fridge11.png in Resources */,
+				7913327022F1D16D00C4BC25 /* winner.wav in Resources */,
 				7910FDB422C60F48008061C6 /* fitR6.png in Resources */,
 				798164CC22DDE5EE00C9110A /* fatR2.png in Resources */,
 				7910FD9822C60F35008061C6 /* fitJ6.png in Resources */,
@@ -697,6 +707,7 @@
 				79741E9122EFADB900C87EA6 /* caduta.wav in Resources */,
 				798164CB22DDE5EE00C9110A /* fatR8.png in Resources */,
 				7956693D22CE0AC300CE53C1 /* fitRB1.png in Resources */,
+				7913327222F1DB6D00C4BC25 /* songStoria.wav in Resources */,
 				792C1FFE22DF097E00F1354C /* fatJ5.png in Resources */,
 				7913326522F193AE00C4BC25 /* storia.sks in Resources */,
 				792C205122E1D62E00F1354C /* fridge9.png in Resources */,
@@ -726,6 +737,7 @@
 				7956693522CE0AC300CE53C1 /* fitRB12.png in Resources */,
 				798164CE22DDE5EE00C9110A /* fatR5.png in Resources */,
 				792C1FFC22DF097E00F1354C /* fatJ2.png in Resources */,
+				7913326E22F1CD1500C4BC25 /* error.wav in Resources */,
 				7910FDAA22C60F48008061C6 /* fitR9.png in Resources */,
 				7910FD9B22C60F35008061C6 /* fitJ1.png in Resources */,
 				792C204B22E1D1E100F1354C /* fridge6.png in Resources */,

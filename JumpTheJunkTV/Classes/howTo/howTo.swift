@@ -8,8 +8,11 @@
  
  import SpriteKit
  import GameplayKit
+
  
  class howTo: SKScene {
+    
+
     override func didMove(to view: SKView) {
         
         let bg = SKSpriteNode(imageNamed: "howToBG")
@@ -160,6 +163,7 @@
     }
     
     override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+
         removeAllChildren()
         let game = Intro(fileNamed: "Intro")
         let transition = SKTransition.reveal(with: .up, duration: 1)
@@ -167,4 +171,5 @@
         view!.presentScene(game!, transition: transition)
         
     }
+    
  }
