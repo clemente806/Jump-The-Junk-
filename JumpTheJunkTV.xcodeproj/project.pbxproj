@@ -249,7 +249,7 @@
 		7956693122CE0AC300CE53C1 /* fitRB1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitRB1.png; sourceTree = "<group>"; };
 		796EAC0422CB47580097D76F /* Intro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro.swift; sourceTree = "<group>"; };
 		79741E8C22EF81AD00C87EA6 /* blackHole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blackHole.swift; sourceTree = "<group>"; };
-		79741E9022EFADB900C87EA6 /* caduta.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = caduta.wav; path = ../../../../Desktop/caduta.wav; sourceTree = "<group>"; };
+		79741E9022EFADB900C87EA6 /* caduta.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = caduta.wav; sourceTree = "<group>"; };
 		79741E9222F06FFA00C87EA6 /* sveglia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sveglia.swift; sourceTree = "<group>"; };
 		798164AF22DC676100C9110A /* FliyngHotDog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FliyngHotDog.swift; sourceTree = "<group>"; };
 		798164B222DC67C500C9110A /* hotdog1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hotdog1.png; sourceTree = "<group>"; };
