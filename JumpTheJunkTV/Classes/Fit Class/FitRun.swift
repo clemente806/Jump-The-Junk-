@@ -26,6 +26,7 @@ class FitRun: SKSpriteNode {
     private var aa = [SKTexture]();
 
     func initializeFitRun(status : Double) {
+       
         fitRunAnimation.removeAll()
         name = "FitRun";
         
@@ -60,18 +61,18 @@ class FitRun: SKSpriteNode {
         
     }
     
-    func move(status: Double, camera: CGFloat) {
+    func move(status: Double, camera: CGFloat, accx: CGFloat) {
         if status > 25 {
-            self.position.x += 7;
+            self.position.x += 7+accx;
         }
 
             //RECUPERA POSIZIONE INIZIALE
         else if (self.position.x < camera) {
-                self.position.x += 9
+                self.position.x += 9+accx
             
                 }
             else {
-                self.position.x += 8
+                self.position.x += 9+accx
             }
     }
     

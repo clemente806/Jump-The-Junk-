@@ -74,6 +74,4 @@ class Intro: SKScene {
             }
         }
     }
-    
-    
 }

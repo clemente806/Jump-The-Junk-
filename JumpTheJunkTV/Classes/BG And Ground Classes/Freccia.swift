@@ -14,8 +14,8 @@ class Freccia: SKSpriteNode {
     
     func initializeFreccia(){
         
-        self.position.x = -900.0
-        self.position.y = 425.0
+        self.position.x = -380.0
+        self.position.y = 350.0
         statusFreccia = 18.0
     }
     
@@ -23,9 +23,9 @@ class Freccia: SKSpriteNode {
         if statusFreccia! < status &&  status >= 18 && status <= 35{
             let myCGFloat = CGFloat(status - statusFreccia!)
             statusFreccia! = status
-            if self.position.x >= -900 && self.position.x <= -630{
+            if self.position.x >= -380.0 && self.position.x <= 1325.0{
                 let pos = self.position.x + (20 * (myCGFloat))
-                if pos < -630{
+                if pos < 1325.0{
 
                     self.position.x += 20 * (myCGFloat)
                 }
@@ -39,10 +39,10 @@ class Freccia: SKSpriteNode {
             
             statusFreccia! = status
             
-            if self.position.x >= -900 && self.position.x <= -630{
+            if self.position.x >= -380.0 && self.position.x <= 1325.0{
                 
                 let pos = self.position.x - (20 * (myCGFloat))
-                if pos > -900{
+                if pos > -380.0{
                     self.position.x -= 20 * (myCGFloat)
                 }
             }

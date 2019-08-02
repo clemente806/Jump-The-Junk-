@@ -59,15 +59,19 @@ class GameOver: SKScene {
         
         if press.type == .select {
             if selected === restart{
+                let game : SKScene?
                 GameViewController.player!.stop()
                 GameViewController.playSoundButtonPress()
-                let game = GameplayScene(fileNamed: "GameplayScene")
+                if GameViewController.lvl == 1{
+                game = GameplayScene(fileNamed: "GameplayScene")
+                } else {game = GameplayScene2(fileNamed: "GameplayScene2")}
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game!.scene!, transition: transition)
             }
             else if selected === mm {
                 GameViewController.player!.stop()
                 GameViewController.playSoundButtonPress()
+                GameViewController.playSoundStoria()
                 let game = Scene1(fileNamed: "Scene1")
                 game!.scaleMode = .aspectFill
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)

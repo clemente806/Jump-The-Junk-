@@ -17,13 +17,13 @@ class Scene1: SKScene{
     var livel2 = ActionNode(imageNamed: "2S")
     let livel3 = ActionNode(imageNamed: "3")
     let livel4 = ActionNode(imageNamed: "4")
-    public static var blockLivel2 = true
+    public static var blockLivel2 = true //METTERE A true
     
 //    private var fitRun = FitRun()
     private var fitRun1 = FitRun()
     
     override func didMove(to view: SKView) {
-        GameViewController.playSound()
+//        GameViewController.playSound()
         let background = SKSpriteNode(imageNamed: "Scene1")
         background.zPosition = -1
         background.position = CGPoint(x: 960, y:540)
@@ -92,6 +92,9 @@ class Scene1: SKScene{
             if selected === livel1 {
                 GameViewController.playSoundButtonPress()
                 GameViewController.playSoundLevel1()
+                GameViewController.player3?.stop()
+                GameViewController.player?.stop()
+                GameViewController.lvl = 1
                 let game = GameplayScene(fileNamed: "GameplayScene")
                 game!.scaleMode = .aspectFill
 
@@ -106,8 +109,13 @@ class Scene1: SKScene{
                 //Se il livello si è sbloccato puoi far partire il secondo livello
                 else if(livel2.label == "2"){
                     GameViewController.playSoundButtonPress()
-                    let game = Scene1(fileNamed: "Scene1")
+                    GameViewController.playSoundLevel1()
+                    GameViewController.player3?.stop()
+                    GameViewController.player?.stop()
+                    GameViewController.lvl = 2
+                    let game = GameplayScene2(fileNamed: "GameplayScene2")
                     game!.scaleMode = .aspectFill
+                    
                     let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                     view?.presentScene(game!, transition: transition)
                 }

@@ -31,7 +31,18 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var ground4: GroundClass?
     
     private var fitRun: FitRun?
+    
     private var FliyngHotDog1: fliynghotdog?
+    private var FliyngHotDog2: fliynghotdog?
+    private var FliyngHotDog3: fliynghotdog?
+    private var FliyngHotDog4: fliynghotdog?
+    private var FliyngHotDog5: fliynghotdog?
+    private var FliyngHotDog6: fliynghotdog?
+    private var FliyngHotDog7: fliynghotdog?
+    private var FliyngHotDog8: fliynghotdog?
+    private var FliyngHotDog9: fliynghotdog?
+    private var FliyngHotDog10: fliynghotdog?
+
     
     private var fridge1: Fridge?
     private var fridge2: Fridge?
@@ -128,7 +139,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     private var sveglia: sveglia?
     
-    private var mainCamera: SKCameraNode?;
+    private var mainCamera: SKCameraNode?
     private var secondCamera: SKCameraNode?
     
     private var itemController = ItemController()
@@ -136,15 +147,15 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     private var bmiNum: SKLabelNode?
     private var ScoreNum: SKLabelNode?
     
-    var score : Int = 0 {
+    var score : Float = 0.0 {
         didSet {
             GameViewController.score = score
         }
     }
-    public var status = 18.0;
+    public var status = 18.0
     
     var ableToJump = true
-    var gameOver = true
+    var gameOver = false
     
     var lancio : SKSpriteNode?
 //    var rotLancio = true
@@ -153,6 +164,11 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     var secondBody = SKPhysicsBody()
     
     var controller = GCController.controllers().first
+    public var x: CGFloat = 0.000
+    public var y: CGFloat = 0.000
+    
+    
+
     
     override func didMove (to view: SKView) {
         initializeGame()
@@ -167,15 +183,15 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             ableToJump = false
         }
         if status >= 18.0 && status <= 25.0 {
-            score += 1
+            score += 0.1
         }
-        ScoreNum?.text = String(score);
+        ScoreNum?.text = String(Int(score));
         
         if fitRun!.position.x < self.mainCamera!.position.x - (self.scene!.frame.width / 2 - 60) {
             fitRun?.removeFromParent()
-            gameOver = false
+            gameOver = true
         }
-        if !gameOver {
+        if gameOver {
             gameover()
         }
         
@@ -186,13 +202,13 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         cloud2?.moveCloudVeloce()
         cloud3?.moveCloudVeloce()
         cloud4?.moveCloudlLento()
+
         
-//        Controllo caduta del personaggio
         if ((fitRun?.position.y)! < self.mainCamera!.position.y-2000){
-            gameOver = false
+            gameOver = true
         }
                 
-        fitRun?.move(status: status, camera: mainCamera!.position.x);
+        fitRun?.move(status: status, camera: mainCamera!.position.x, accx: x)
     }
     
     func  gameover(){
@@ -214,36 +230,75 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             view!.presentScene(scene, transition: SKTransition.fade(withDuration: TimeInterval(1)));
             }
     }
+//    Salto con impulso dal telecomando
+    override func pressesBegan(_ presses: Set<UIPress>, with event: UIPressesEvent?) {
+        
+        guard let press = presses.first else { return }
+        if press.type == .playPause {
+            controller?.motion?.valueChangedHandler = {(motion: GCMotion)->() in
+                self.y = CGFloat(motion.userAcceleration.y)
+                if self.y < 0 {self.y.negate()}
+                var fitJumpAnimation = [SKTexture]();
+                var animateFitJumpAction = SKAction();
+                
+                if self.ableToJump == true && self.y > 0.5 {
+                    self.playSoundJump()
+                    self.ableToJump = false
+                    self.name = "FitJump";
+                    if self.status <= 25.0{
+                        self.fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 700*self.y))
+                        for i in 1...6 {
+                            let name = "fitJ\(i)";
+                            fitJumpAnimation.append(SKTexture(imageNamed: name));
+                        }
+                    }
+                    else {
+                        self.fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 600*self.y))
+                        for i in 1...6 {
+                            let name1 = "fatJ\(i)";
+                            fitJumpAnimation.append(SKTexture(imageNamed: name1));
+                        }
+                    }
+                    animateFitJumpAction = SKAction.animate(with: fitJumpAnimation, timePerFrame: 0.20
+                        , resize: true, restore: false);
+                    self.fitRun?.run(SKAction.repeat(animateFitJumpAction, count: 1));
+                }
+            }
+        }
+    }
     
+//    Salto con il bottone
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        playSoundJump()
+//        var fitJumpAnimation = [SKTexture]();
+//        var animateFitJumpAction = SKAction();
+//        if ableToJump == true {
+//
+//            name = "FitJump";
+//            if status <= 25.0{
+//                fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 600))
+//                for i in 1...6 {
+//                    let name = "fitJ\(i)";
+//                    fitJumpAnimation.append(SKTexture(imageNamed: name));
+//                }
+//            }
+//            else {
+//                fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 550))
+//                for i in 1...6 {
+//                    let name1 = "fatJ\(i)";
+//                    fitJumpAnimation.append(SKTexture(imageNamed: name1));
+//                }
+//            }
+//            animateFitJumpAction = SKAction.animate(with: fitJumpAnimation, timePerFrame: 0.20
+//                , resize: true, restore: false);
+//            fitRun?.run(SKAction.repeat(animateFitJumpAction, count: 1));
+//        }
+//    }
+   /////////////////////////////////////////////////
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         controller?.motion?.valueChangedHandler = {(motion: GCMotion)->() in
-            let y = motion.userAcceleration.y
-            
-            var fitJumpAnimation = [SKTexture]();
-            var animateFitJumpAction = SKAction();
-            
-            if self.ableToJump == true && y > 1.0 {
-                self.playSoundJump()
-                self.ableToJump = false
-                self.name = "FitJump";
-                if self.status <= 25.0{
-                    self.fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 700))
-                    for i in 1...6 {
-                        let name = "fitJ\(i)";
-                        fitJumpAnimation.append(SKTexture(imageNamed: name));
-                    }
-                }
-                else {
-                    self.fitRun?.physicsBody?.applyImpulse(CGVector(dx: 0,dy: 500))
-                    for i in 1...6 {
-                        let name1 = "fatJ\(i)";
-                        fitJumpAnimation.append(SKTexture(imageNamed: name1));
-                    }
-                }
-                animateFitJumpAction = SKAction.animate(with: fitJumpAnimation, timePerFrame: 0.20
-                    , resize: true, restore: false);
-                self.fitRun?.run(SKAction.repeat(animateFitJumpAction, count: 1));
-            }
+            self.x = CGFloat(motion.userAcceleration.x)
+            if self.x < 0 {self.x.negate()}
         }
     }
     
@@ -381,7 +436,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
             secondBody.node?.removeFromParent();
             fitRun?.initializeFitRun(status: status)
         }
-        if firstBody.node?.name == "FitRun" && secondBody.node?.name == "fliynghotdog" {
+        if firstBody.node?.name == "FitRun" && (secondBody.node?.name == "fliynghotdog1" || secondBody.node?.name == "fliynghotdog2" || secondBody.node?.name == "fliynghotdog3" || secondBody.node?.name == "fliynghotdog4" || secondBody.node?.name == "fliynghotdog5" || secondBody.node?.name == "fliynghotdog6" || secondBody.node?.name == "fliynghotdog7" || secondBody.node?.name == "fliynghotdog8" || secondBody.node?.name == "fliynghotdog9" || secondBody.node?.name == "fliynghotdog10"){
             playSoundJunk()
             if status <= 32
             {
@@ -552,8 +607,26 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         cloud3 = childNode(withName: "cloud3") as? cloud;
         cloud4 = childNode(withName: "cloud4") as? cloud;
         
-        FliyngHotDog1 = childNode(withName: "fliynghotdog") as? fliynghotdog;
+        FliyngHotDog1 = childNode(withName: "fliynghotdog1") as? fliynghotdog;
         FliyngHotDog1?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog2 = childNode(withName: "fliynghotdog2") as? fliynghotdog;
+        FliyngHotDog2?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog3 = childNode(withName: "fliynghotdog3") as? fliynghotdog;
+        FliyngHotDog3?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog4 = childNode(withName: "fliynghotdog4") as? fliynghotdog;
+        FliyngHotDog4?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog5 = childNode(withName: "fliynghotdog5") as? fliynghotdog;
+        FliyngHotDog5?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog6 = childNode(withName: "fliynghotdog6") as? fliynghotdog;
+        FliyngHotDog6?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog7 = childNode(withName: "fliynghotdog7") as? fliynghotdog;
+        FliyngHotDog7?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog8 = childNode(withName: "fliynghotdog8") as? fliynghotdog;
+        FliyngHotDog8?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog9 = childNode(withName: "fliynghotdog9") as? fliynghotdog;
+        FliyngHotDog9?.initializeHotDog(camera: mainCamera!)
+        FliyngHotDog10 = childNode(withName: "fliynghotdog10") as? fliynghotdog;
+        FliyngHotDog10?.initializeHotDog(camera: mainCamera!)
 
         
         fridge1 = mainCamera?.childNode(withName: "fridge1") as? Fridge;
@@ -692,10 +765,10 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
         
         bmiNum = mainCamera!.childNode(withName: "BmiNum")
             as? SKLabelNode;
-        bmiNum?.text = "18.0";
+//        bmiNum?.text = "18.0";
         ScoreNum = mainCamera!.childNode(withName: "ScoreNum")
             as? SKLabelNode;
-        ScoreNum?.text = "0";
+//        ScoreNum?.text = "0";
         
         buca1?.initializeblackHole()
         buca2?.initializeblackHole()
@@ -753,9 +826,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
                 || child.name == "carrot" || child.name == "pear" || child.name == "lollipop"
                 || child.name == "hotdog" || child.name == "sandwich"
                 || child.name == "donut" || child.name == "fries" || child.name == "barraRossa"
-                || child.name == "cloud" || child.name == "fliynghotdog"
-                || child.name == "ciboFrigo1" || child.name == "ciboFrigo2"
-                || child.name == "ciboFrigo3" || child.name == "ciboFrigo4" {
+                || child.name == "cloud" || child.name == "fliynghotdog" || child.name == "fliynghotdog2" || child.name == "fliynghotdog3" || child.name == "fliynghotdog4" || child.name == "fliynghotdog5" || child.name == "fliynghotdog6" || child.name == "fliynghotdog7" || child.name == "fliynghotdog8" || child.name == "fliynghotdog9" || child.name == "fliynghotdog10" || child.name == "ciboFrigo1" || child.name == "ciboFrigo2" || child.name == "ciboFrigo3" || child.name == "ciboFrigo4" {
                 
                 if child.position.x < self.mainCamera!.position.x - self.scene!.frame.width / 2 {
                     child.removeFromParent();
@@ -877,7 +948,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
     
     @objc func controllerDidConnect(note: NSNotification)
     {
-        print("DENTro")
+       
         controller = GCController.controllers().first
         controller?.motion?.valueChangedHandler = {(motion: GCMotion)->() in
         let userAccelerationLabelXString = "X = \(String(format: "%.3f", motion.userAcceleration.x))\n"
@@ -891,7 +962,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate{
 func s(item : SKSpriteNode) {
     
     let index = Int.random(in: 0..<10)
-    print(index)
+    
     switch index {
     case 0:
         item.texture = SKTexture(imageNamed:"banana")
@@ -916,27 +987,31 @@ func s(item : SKSpriteNode) {
     case 4:
         item.texture = SKTexture(imageNamed:"pear")
         item.name = "pear"
+        item.size = CGSize(width: 37, height: 60)
         item.setScale(0.8)
         item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
     case 5:
         item.texture = SKTexture(imageNamed:"hotdog")
-        item.name = "hotdog";
+        item.name = "hotdog"
+        item.size = CGSize(width: 70, height: 46)
         item.setScale(0.8);
         item.physicsBody = SKPhysicsBody(rectangleOf: item.size)
     case 6:
         item.texture = SKTexture(imageNamed:"fries")
-        item.name = "fries";
-        item.setScale(0.8);
+        item.name = "fries"
+        item.size = CGSize(width: 51, height: 60)
+        item.setScale(0.8)
         item.physicsBody = SKPhysicsBody(rectangleOf: item.size);
     case 7:
         item.texture = SKTexture(imageNamed:"lollipop")
-        item.name = "lollipop";
-        item.setScale(0.8);
+        item.name = "lollipop"
+        item.size = CGSize(width: 28, height: 60)
+        item.setScale(0.8)
         item.physicsBody = SKPhysicsBody(rectangleOf: item.size);
     case 8:
         item.texture = SKTexture(imageNamed:"sandwich")
-        item.name = "sandwich";
-        item.setScale(0.8);
+        item.name = "sandwich"
+        item.setScale(0.8)
         item.physicsBody = SKPhysicsBody(rectangleOf: item.size);
     default:
         item.texture = SKTexture(imageNamed:"donut")
@@ -950,7 +1025,4 @@ func s(item : SKSpriteNode) {
     
     item.zPosition = 4
     item.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-    
-    
 }
-

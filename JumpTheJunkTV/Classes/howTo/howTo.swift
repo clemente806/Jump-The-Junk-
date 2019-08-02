@@ -48,19 +48,24 @@
         l2.fontName = "Monaco"
         l2.fontColor = UIColor(displayP3Red: 200, green: 255, blue: 0, alpha: 100)
         addChild(l2)
-        let l14 = SKLabelNode(text: "Move the remote upward and")
-        l14.position = CGPoint(x: 470, y: 395)
+        let l14 = SKLabelNode(text: "Touch the pad while moving the remote")
+        l14.position = CGPoint(x: 520, y: 395)
         l14.zPosition = 5
         l14.fontName = "Monaco"
         l14.fontColor = UIColor(displayP3Red: 0, green: 255, blue: 0, alpha: 100)
         addChild(l14)
-        let l15 = SKLabelNode(text: "downward, as fast as you can!!!")
-        l15.position = CGPoint(x: 470, y: 360)
+        let l15 = SKLabelNode(text: "to the right and to the left,")
+        l15.position = CGPoint(x: 520, y: 360)
         l15.zPosition = 5
         l15.fontName = "Monaco"
         l15.fontColor = UIColor(displayP3Red: 0, green: 255, blue: 0, alpha: 100)
         addChild(l15)
-        
+        let l22 = SKLabelNode(text: "as fast as you can!!!")
+        l22.position = CGPoint(x: 520, y: 325)
+        l22.zPosition = 5
+        l22.fontName = "Monaco"
+        l22.fontColor = UIColor(displayP3Red: 0, green: 255, blue: 0, alpha: 100)
+        addChild(l22)
         let l3 = SKLabelNode(text: "YOU")
         l3.position = CGPoint(x: 755, y: 295)
         l3.zPosition = 5
@@ -74,18 +79,24 @@
         addChild(ind)
         
         
-        let l4 = SKLabelNode(text: "You can jump (move to the right the remote)")
+        let l4 = SKLabelNode(text: "You can jump on the platforms (press the")
         l4.position = CGPoint(x: 1500, y: 200)
         l4.zPosition = 5
         l4.fontName = "Monaco"
         l4.fontColor = UIColor(displayP3Red: 0, green: 255, blue: 0, alpha: 100)
         addChild(l4)
-        let l5 = SKLabelNode(text: " on the platforms to avoid obstacles or junk food")
+        let l5 = SKLabelNode(text: "Play/Pause button while moving the remote upward)")
         l5.position = CGPoint(x: 1500, y: 165)
         l5.zPosition = 5
         l5.fontName = "Monaco"
         l5.fontColor = UIColor(displayP3Red: 0, green: 255, blue: 0, alpha: 100)
         addChild(l5)
+        let l23 = SKLabelNode(text: "to avoid obstacles or junk food")
+        l23.position = CGPoint(x: 1500, y: 130)
+        l23.zPosition = 5
+        l23.fontName = "Monaco"
+        l23.fontColor = UIColor(displayP3Red: 0, green: 255, blue: 0, alpha: 100)
+        addChild(l23)
         let ind2 = SKSpriteNode(imageNamed: "triangolo")
         ind2.size = CGSize(width: 20, height: 20)
         ind2.position = CGPoint(x: 1500, y: 250)

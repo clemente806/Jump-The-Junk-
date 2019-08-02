@@ -17,7 +17,7 @@ class endGame: SKScene {
     let restart = ActionNode(imageNamed: "restart")
     let mm = ActionNode(imageNamed: "mainmenu")
     let background = SKSpriteNode(imageNamed: "youdidit")
-    var a = String(GameViewController.score)
+    var a = String(Int(GameViewController.score))
     
     
     func initializeRestartButton(){
@@ -93,6 +93,7 @@ class endGame: SKScene {
                 game!.scaleMode = .aspectFill
                 let transition = SKTransition.doorsOpenVertical(withDuration: 1)
                 view?.presentScene(game!.scene!, transition: transition)
+                GameViewController.playSoundStoria()
             }
         }
     }

@@ -15,7 +15,6 @@
 		7910FD2422C60E7C008061C6 /* junk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7910FD1F22C60E7C008061C6 /* junk.wav */; };
 		7910FD2522C60E7C008061C6 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7910FD2022C60E7C008061C6 /* jump.wav */; };
 		7910FD2622C60E7C008061C6 /* good.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7910FD2122C60E7C008061C6 /* good.wav */; };
-		7910FD2722C60E7C008061C6 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7910FD2222C60E7C008061C6 /* music.mp3 */; };
 		7910FD3D22C60E97008061C6 /* FitRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD2B22C60E97008061C6 /* FitRun.swift */; };
 		7910FD3F22C60E97008061C6 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD2F22C60E97008061C6 /* GameOver.swift */; };
 		7910FD4022C60E97008061C6 /* Fridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FD3122C60E97008061C6 /* Fridge.swift */; };
@@ -46,6 +45,16 @@
 		7910FDB322C60F48008061C6 /* fitR7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7910FDA722C60F48008061C6 /* fitR7.png */; };
 		7910FDB422C60F48008061C6 /* fitR6.png in Resources */ = {isa = PBXBuildFile; fileRef = 7910FDA822C60F48008061C6 /* fitR6.png */; };
 		7910FDB622C62139008061C6 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7910FDB522C62139008061C6 /* ButtonNode.swift */; };
+		79124FA522F2142D0088D907 /* trampolino.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79124FA422F2142D0088D907 /* trampolino.swift */; };
+		79124FA722F21C3B0088D907 /* Spring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79124FA622F21C3B0088D907 /* Spring.mp3 */; };
+		79124FA922F2229B0088D907 /* meteora.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79124FA822F2229B0088D907 /* meteora.swift */; };
+		79124FAB22F224E80088D907 /* ufo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79124FAA22F224E80088D907 /* ufo.swift */; };
+		79124FAD22F2E9B30088D907 /* audioStoria.wav in Resources */ = {isa = PBXBuildFile; fileRef = 79124FAC22F2E9B30088D907 /* audioStoria.wav */; };
+		79124FB322F302CF0088D907 /* storia1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79124FAE22F302CE0088D907 /* storia1.sks */; };
+		79124FB422F302CF0088D907 /* storia2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79124FAF22F302CF0088D907 /* storia2.sks */; };
+		79124FB522F302CF0088D907 /* storia4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79124FB022F302CF0088D907 /* storia4.sks */; };
+		79124FB622F302CF0088D907 /* storia3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79124FB122F302CF0088D907 /* storia3.sks */; };
+		79124FB722F302CF0088D907 /* storia5.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79124FB222F302CF0088D907 /* storia5.sks */; };
 		7913326022F18A7400C4BC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7913325F22F18A7300C4BC25 /* Assets.xcassets */; };
 		7913326322F18AC100C4BC25 /* storia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913326222F18AC100C4BC25 /* storia.swift */; };
 		7913326522F193AE00C4BC25 /* storia.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7913326422F193AE00C4BC25 /* storia.sks */; };
@@ -53,7 +62,8 @@
 		7913326C22F1A70300C4BC25 /* endGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7913326B22F1A70300C4BC25 /* endGame.sks */; };
 		7913326E22F1CD1500C4BC25 /* error.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7913326D22F1CD1500C4BC25 /* error.wav */; };
 		7913327022F1D16D00C4BC25 /* winner.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7913326F22F1D16D00C4BC25 /* winner.wav */; };
-		7913327222F1DB6D00C4BC25 /* songStoria.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7913327122F1DB6D00C4BC25 /* songStoria.wav */; };
+		7913327422F1E4B000C4BC25 /* GameplayScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7913327322F1E4B000C4BC25 /* GameplayScene2.swift */; };
+		7913327722F1E4D500C4BC25 /* GameplayScene2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7913327622F1E4D500C4BC25 /* GameplayScene2.sks */; };
 		79191E2A22D61FB2001DFED3 /* cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79191E2922D61FB2001DFED3 /* cloud.swift */; };
 		792C1FF922DF097E00F1354C /* fatJ1.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF322DF097E00F1354C /* fatJ1.png */; };
 		792C1FFA22DF097E00F1354C /* fatJ6.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF422DF097E00F1354C /* fatJ6.png */; };
@@ -63,7 +73,7 @@
 		792C1FFE22DF097E00F1354C /* fatJ5.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FF822DF097E00F1354C /* fatJ5.png */; };
 		792C200022DF33AE00F1354C /* GameOverMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */; };
 		792C200622E0630E00F1354C /* ButtonPress.wav in Resources */ = {isa = PBXBuildFile; fileRef = 792C200522E0630E00F1354C /* ButtonPress.wav */; };
-		792C200822E06DF900F1354C /* musicaStoria.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 792C200722E06DF900F1354C /* musicaStoria.mp3 */; };
+		792C200822E06DF900F1354C /* livel1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 792C200722E06DF900F1354C /* livel1.mp3 */; };
 		792C200D22E088DB00F1354C /* Freccia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792C200C22E088DB00F1354C /* Freccia.swift */; };
 		792C200F22E1B2CC00F1354C /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792C200E22E1B2CC00F1354C /* Star.swift */; };
 		792C203922E1C02300F1354C /* star11.png in Resources */ = {isa = PBXBuildFile; fileRef = 792C202D22E1C02300F1354C /* star11.png */; };
@@ -139,7 +149,6 @@
 		7910FD1F22C60E7C008061C6 /* junk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = junk.wav; sourceTree = "<group>"; };
 		7910FD2022C60E7C008061C6 /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		7910FD2122C60E7C008061C6 /* good.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = good.wav; sourceTree = "<group>"; };
-		7910FD2222C60E7C008061C6 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = "<group>"; };
 		7910FD2B22C60E97008061C6 /* FitRun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitRun.swift; sourceTree = "<group>"; };
 		7910FD2F22C60E97008061C6 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 		7910FD3122C60E97008061C6 /* Fridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fridge.swift; sourceTree = "<group>"; };
@@ -170,6 +179,16 @@
 		7910FDA722C60F48008061C6 /* fitR7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitR7.png; sourceTree = "<group>"; };
 		7910FDA822C60F48008061C6 /* fitR6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fitR6.png; sourceTree = "<group>"; };
 		7910FDB522C62139008061C6 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		79124FA422F2142D0088D907 /* trampolino.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = trampolino.swift; sourceTree = "<group>"; };
+		79124FA622F21C3B0088D907 /* Spring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Spring.mp3; sourceTree = "<group>"; };
+		79124FA822F2229B0088D907 /* meteora.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meteora.swift; sourceTree = "<group>"; };
+		79124FAA22F224E80088D907 /* ufo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ufo.swift; sourceTree = "<group>"; };
+		79124FAC22F2E9B30088D907 /* audioStoria.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = audioStoria.wav; sourceTree = "<group>"; };
+		79124FAE22F302CE0088D907 /* storia1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = storia1.sks; sourceTree = "<group>"; };
+		79124FAF22F302CF0088D907 /* storia2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = storia2.sks; sourceTree = "<group>"; };
+		79124FB022F302CF0088D907 /* storia4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = storia4.sks; sourceTree = "<group>"; };
+		79124FB122F302CF0088D907 /* storia3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = storia3.sks; sourceTree = "<group>"; };
+		79124FB222F302CF0088D907 /* storia5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = storia5.sks; sourceTree = "<group>"; };
 		7913325F22F18A7300C4BC25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = JumpTheJunkTV/Assets.xcassets; sourceTree = "<group>"; };
 		7913326222F18AC100C4BC25 /* storia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storia.swift; sourceTree = "<group>"; };
 		7913326422F193AE00C4BC25 /* storia.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = storia.sks; sourceTree = "<group>"; };
@@ -177,7 +196,8 @@
 		7913326B22F1A70300C4BC25 /* endGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = endGame.sks; sourceTree = "<group>"; };
 		7913326D22F1CD1500C4BC25 /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
 		7913326F22F1D16D00C4BC25 /* winner.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = winner.wav; sourceTree = "<group>"; };
-		7913327122F1DB6D00C4BC25 /* songStoria.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = songStoria.wav; sourceTree = "<group>"; };
+		7913327322F1E4B000C4BC25 /* GameplayScene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayScene2.swift; sourceTree = "<group>"; };
+		7913327622F1E4D500C4BC25 /* GameplayScene2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene2.sks; sourceTree = "<group>"; };
 		79191E2922D61FB2001DFED3 /* cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cloud.swift; sourceTree = "<group>"; };
 		792C1FF322DF097E00F1354C /* fatJ1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ1.png; sourceTree = "<group>"; };
 		792C1FF422DF097E00F1354C /* fatJ6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ6.png; sourceTree = "<group>"; };
@@ -187,7 +207,7 @@
 		792C1FF822DF097E00F1354C /* fatJ5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fatJ5.png; sourceTree = "<group>"; };
 		792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = GameOverMusic.mp3; sourceTree = "<group>"; };
 		792C200522E0630E00F1354C /* ButtonPress.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ButtonPress.wav; sourceTree = "<group>"; };
-		792C200722E06DF900F1354C /* musicaStoria.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = musicaStoria.mp3; sourceTree = "<group>"; };
+		792C200722E06DF900F1354C /* livel1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = livel1.mp3; sourceTree = "<group>"; };
 		792C200C22E088DB00F1354C /* Freccia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Freccia.swift; sourceTree = "<group>"; };
 		792C200E22E1B2CC00F1354C /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		792C202D22E1C02300F1354C /* star11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star11.png; sourceTree = "<group>"; };
@@ -315,17 +335,17 @@
 		7910FD1E22C60E7C008061C6 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				7913327122F1DB6D00C4BC25 /* songStoria.wav */,
+				79124FAC22F2E9B30088D907 /* audioStoria.wav */,
+				79124FA622F21C3B0088D907 /* Spring.mp3 */,
 				7913326F22F1D16D00C4BC25 /* winner.wav */,
 				7913326D22F1CD1500C4BC25 /* error.wav */,
 				79741E9022EFADB900C87EA6 /* caduta.wav */,
-				792C200722E06DF900F1354C /* musicaStoria.mp3 */,
+				792C200722E06DF900F1354C /* livel1.mp3 */,
 				792C200522E0630E00F1354C /* ButtonPress.wav */,
 				792C1FFF22DF33AE00F1354C /* GameOverMusic.mp3 */,
 				7910FD1F22C60E7C008061C6 /* junk.wav */,
 				7910FD2022C60E7C008061C6 /* jump.wav */,
 				7910FD2122C60E7C008061C6 /* good.wav */,
-				7910FD2222C60E7C008061C6 /* music.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -394,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				7910FD3622C60E97008061C6 /* GameplayScene.swift */,
+				7913327322F1E4B000C4BC25 /* GameplayScene2.swift */,
 			);
 			path = "Scene Classes";
 			sourceTree = "<group>";
@@ -410,6 +431,9 @@
 				792C200E22E1B2CC00F1354C /* Star.swift */,
 				79741E8C22EF81AD00C87EA6 /* blackHole.swift */,
 				79741E9222F06FFA00C87EA6 /* sveglia.swift */,
+				79124FA422F2142D0088D907 /* trampolino.swift */,
+				79124FA822F2229B0088D907 /* meteora.swift */,
+				79124FAA22F224E80088D907 /* ufo.swift */,
 			);
 			path = "BG And Ground Classes";
 			sourceTree = "<group>";
@@ -425,6 +449,12 @@
 		7910FD4722C60EC3008061C6 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				79124FAE22F302CE0088D907 /* storia1.sks */,
+				79124FAF22F302CF0088D907 /* storia2.sks */,
+				79124FB122F302CF0088D907 /* storia3.sks */,
+				79124FB022F302CF0088D907 /* storia4.sks */,
+				79124FB222F302CF0088D907 /* storia5.sks */,
+				7913327622F1E4D500C4BC25 /* GameplayScene2.sks */,
 				7910FD4922C60EC3008061C6 /* GameOver.sks */,
 				79463D4622CF69A6000FE149 /* GameplayScene.sks */,
 				79463D3422CF3653000FE149 /* Intro.sks */,
@@ -678,7 +708,6 @@
 				7910FD9822C60F35008061C6 /* fitJ6.png in Resources */,
 				7956693B22CE0AC300CE53C1 /* fitRB2.png in Resources */,
 				798164B322DC67C500C9110A /* hotdog1.png in Resources */,
-				7910FD2722C60E7C008061C6 /* music.mp3 in Resources */,
 				798164D122DDE5EE00C9110A /* fatR11.png in Resources */,
 				792C204A22E1D1E100F1354C /* fridge5.png in Resources */,
 				7910FD2522C60E7C008061C6 /* jump.wav in Resources */,
@@ -691,6 +720,7 @@
 				7910FD2422C60E7C008061C6 /* junk.wav in Resources */,
 				7910FD9722C60F35008061C6 /* fitJ5.png in Resources */,
 				792C203B22E1C02300F1354C /* star0.png in Resources */,
+				79124FA722F21C3B0088D907 /* Spring.mp3 in Resources */,
 				792C204422E1C02300F1354C /* star10.png in Resources */,
 				792C203A22E1C02300F1354C /* star4.png in Resources */,
 				7956693622CE0AC300CE53C1 /* fitRB5.png in Resources */,
@@ -705,10 +735,12 @@
 				792C204122E1C02300F1354C /* star1.png in Resources */,
 				7910FD2622C60E7C008061C6 /* good.wav in Resources */,
 				79741E9122EFADB900C87EA6 /* caduta.wav in Resources */,
+				7913327722F1E4D500C4BC25 /* GameplayScene2.sks in Resources */,
 				798164CB22DDE5EE00C9110A /* fatR8.png in Resources */,
 				7956693D22CE0AC300CE53C1 /* fitRB1.png in Resources */,
-				7913327222F1DB6D00C4BC25 /* songStoria.wav in Resources */,
 				792C1FFE22DF097E00F1354C /* fatJ5.png in Resources */,
+				79124FB322F302CF0088D907 /* storia1.sks in Resources */,
+				79124FB422F302CF0088D907 /* storia2.sks in Resources */,
 				7913326522F193AE00C4BC25 /* storia.sks in Resources */,
 				792C205122E1D62E00F1354C /* fridge9.png in Resources */,
 				792C204222E1C02300F1354C /* star2.png in Resources */,
@@ -716,7 +748,7 @@
 				7910FD1522C60E3F008061C6 /* Main.storyboard in Resources */,
 				7913326C22F1A70300C4BC25 /* endGame.sks in Resources */,
 				7956693322CE0AC300CE53C1 /* fitRB9.png in Resources */,
-				792C200822E06DF900F1354C /* musicaStoria.mp3 in Resources */,
+				792C200822E06DF900F1354C /* livel1.mp3 in Resources */,
 				798164D022DDE5EE00C9110A /* fatR10.png in Resources */,
 				7910FDAC22C60F48008061C6 /* fitR10.png in Resources */,
 				7910FDAB22C60F48008061C6 /* fitR12.png in Resources */,
@@ -728,6 +760,7 @@
 				798164B922DC67D600C9110A /* hotdog3.png in Resources */,
 				7910FDB122C60F48008061C6 /* fitR4.png in Resources */,
 				798164D422DDE5EE00C9110A /* fatR12.png in Resources */,
+				79124FB522F302CF0088D907 /* storia4.sks in Resources */,
 				792C1FFB22DF097E00F1354C /* fatJ3.png in Resources */,
 				792C203C22E1C02300F1354C /* star6.png in Resources */,
 				792C205722E1D65A00F1354C /* fridge12.png in Resources */,
@@ -739,9 +772,11 @@
 				792C1FFC22DF097E00F1354C /* fatJ2.png in Resources */,
 				7913326E22F1CD1500C4BC25 /* error.wav in Resources */,
 				7910FDAA22C60F48008061C6 /* fitR9.png in Resources */,
+				79124FB622F302CF0088D907 /* storia3.sks in Resources */,
 				7910FD9B22C60F35008061C6 /* fitJ1.png in Resources */,
 				792C204B22E1D1E100F1354C /* fridge6.png in Resources */,
 				792C1FFD22DF097E00F1354C /* fatJ4.png in Resources */,
+				79124FAD22F2E9B30088D907 /* audioStoria.wav in Resources */,
 				792C1FF922DF097E00F1354C /* fatJ1.png in Resources */,
 				7956693922CE0AC300CE53C1 /* fitRB11.png in Resources */,
 				798164CD22DDE5EE00C9110A /* fatR3.png in Resources */,
@@ -752,6 +787,7 @@
 				792C205D22E1D67500F1354C /* fridge15.png in Resources */,
 				7910FD5A22C60EC4008061C6 /* GameOver.sks in Resources */,
 				7956693422CE0AC300CE53C1 /* fitRB4.png in Resources */,
+				79124FB722F302CF0088D907 /* storia5.sks in Resources */,
 				798164B722DC67D600C9110A /* hotdog4.png in Resources */,
 				7910FDAF22C60F48008061C6 /* fitR3.png in Resources */,
 				7910FD9622C60F35008061C6 /* fitJ4.png in Resources */,
@@ -784,11 +820,15 @@
 				7910FD0A22C60E3F008061C6 /* AppDelegate.swift in Sources */,
 				790085A522D5D8BC00F66AC1 /* barraRossa.swift in Sources */,
 				79C1EA7622CA1DC60041EDCC /* ActionNode.swift in Sources */,
+				79124FA522F2142D0088D907 /* trampolino.swift in Sources */,
 				79741E8D22EF81AD00C87EA6 /* blackHole.swift in Sources */,
+				7913327422F1E4B000C4BC25 /* GameplayScene2.swift in Sources */,
 				79741E9322F06FFA00C87EA6 /* sveglia.swift in Sources */,
 				7913326322F18AC100C4BC25 /* storia.swift in Sources */,
+				79124FA922F2229B0088D907 /* meteora.swift in Sources */,
 				7910FD4122C60E97008061C6 /* Scene1.swift in Sources */,
 				792C200D22E088DB00F1354C /* Freccia.swift in Sources */,
+				79124FAB22F224E80088D907 /* ufo.swift in Sources */,
 				7910FD3D22C60E97008061C6 /* FitRun.swift in Sources */,
 				7910FDB622C62139008061C6 /* ButtonNode.swift in Sources */,
 				799BCE8F22EF3FD7003AC566 /* howTo.swift in Sources */,
@@ -929,13 +969,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4HH62WUDHN;
+				DEVELOPMENT_TEAM = 6P966474ZD;
 				INFOPLIST_FILE = JumpTheJunkTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunk;
+				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunkT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -947,13 +987,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4HH62WUDHN;
+				DEVELOPMENT_TEAM = 6P966474ZD;
 				INFOPLIST_FILE = JumpTheJunkTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunk;
+				PRODUCT_BUNDLE_IDENTIFIER = JumpTheJunkT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
